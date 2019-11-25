@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>STAY ALVIE</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">    
+    <link rel="stylesheet" href="css/main.css">  
+    
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript">
+        $(function(){
+            $(".Pos_menu li").click(function(){  
+                     var i = $(".Pos_menu li").index(this);
+                     var s = $(".section").eq(i).offset().top;
+                       $(".Pos_menu li i").removeClass();
+                       $(".Pos_menu li i").addClass("fas fa-skull");
+                       $(".Pos_menu li i").eq(i).removeClass();
+                       $(".Pos_menu li i").eq(i).addClass("fab fa-chrome fa-spin on");
+                       $("html,body").stop().animate({scrollTop:s});
+                 });
+
+            var deflut=0;
+            $(".Pos_menu li i").removeClass();
+            $(".Pos_menu li i").addClass("fas fa-skull");
+            $(".Pos_menu li i").eq(deflut).removeClass();
+            $(".Pos_menu li i").eq(deflut).addClass("fab fa-chrome fa-spin on");
+            $(window).scroll(function(){
+                var scroll = $(window).scrollTop();
+                var ht= $(window).height();
+
+            for(var i=0; i<7; i++){
+                if(scroll >=ht*(i) && scroll < ht*(i+1)){                    
+                    $(".Pos_menu li i").removeClass();
+                    $(".Pos_menu li i").addClass("fas fa-skull");
+                    $(".Pos_menu li i").eq(i).removeClass();
+                    $(".Pos_menu li i").eq(i).addClass("fab fa-chrome fa-spin on");
+                }
+                else if(scroll == 0){
+                    $(".Pos_menu li i").removeClass();
+                    $(".Pos_menu li i").addClass("fas fa-skull");
+                    $(".Pos_menu li i").eq(0).removeClass();
+                    $(".Pos_menu li i").eq(0).addClass("fab fa-chrome fa-spin on");
+                };               
+            }
+            }); 
+            var select = ".section";
+            $(select).each(function (index) {
+                
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveScorll = $(window).scrollTop();
+                    var section = $(select).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(section).next() != undefined) {
+                            try{
+                                moveScorll = $(section).next().offset().top;
+                                $('header').removeClass('head-up').addClass('head-down');
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(section).prev() != undefined) {
+                            try{
+                                moveScorll = $(section).prev().offset().top;
+                                
+                            }catch(e){}
+                        }
+                    }
+                    $(window).scroll(function(){
+                        var windowScroll = $(window).scrollTop();
+                        if(windowScroll == 0){
+                        $('header').removeClass('head-down').addClass('head-up');
+                        };
+                    });
+                     
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveScorll + 'px'
+                    },{duration: 1200, complete: function(){}});
+                    
+                });
+            });
+
+        });
+    </script>
+    
+    <style>
+        /*defalut setting*/
+        *{margin: 0; padding: 0;}
+        body::-webkit-scrollbar {display: none;} 
+        html,body{ margin:0; padding:0; width:100%; height:100%; font-family: 'Big Shoulders Text', cursive; color: #f9f9f9;}
+        
+        #wrap {width: 100%; height: 100%;position: relative;}
+        
+        /*header*/
+        header{position: fixed; width: 100%; height: auto; z-index: 99; font-family: 'Kanit', sans-serif;}
+        .head-up{background: rgba(0,0,0,0.1); transition: 0.5s;}
+        .head-down{background: rgba(0,0,0,0.7); transition: 0.5s;}
+        header ul{width: 50%; position: relative; left: 50%;}
+        header ul li a{float: left; width: 25%; line-height: 100px; text-align: center; font-size: 20px; cursor: pointer; letter-spacing: 1px; border-bottom: 2px solid rgba(0,0,0,0); border-top: 2px solid rgba(0,0,0,0);}
+        header ul li a:hover{color: #a5060a; transition: 0.3s; border-top: 2px solid #a5060a; border-bottom: 2px solid #a5060a; font-weight: bold;}
+        header ul:after{content: ''; display: block; clear: both;}
+        .BuyNow a{background: #a5060a; border-top: 2px solid inset #a5060a; border-bottom: 2px solid inset #a5060a;}
+        .BuyNow a:hover{color: #251e1e;}
+        
+        .section{ width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
+        .Content{position: relative;width: 100%; height: 100%; overflow: hidden;}
+        .con2{top: 100px; height: 91%;}
+        .con4{top: 100px; height: 91%;}
+        .con5{top: 100px; height: 90%;}
+        .con6{top: 100px; height: 90%;}
+        
+        .Pos_menu{position: fixed; right: 1%; top: 30%;  text-align: center; z-index: 99999;}
+        .Pos_menu li{width: 30px; height: 30px; margin-top: 30px;}
+        .Pos_menu li i:hover{color: #a5060a; transition: 0.3s;}
+        .Pos_menu li i{color: rgba(255,255,255,0.3); font-size: 20px; display: inline-block;}
+        .Pos_menu li i.on{color: #a5060a; font-size: 36px;}
+        
+        .s1{background: url(images/bg_1.jpg) no-repeat; background-size: cover; background-position: 0% 0%; filter: brightness(0.9); background-attachment: fixed;}
+        .s2{background: #000;}
+        .s3{background: url(images/bg_3.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
+        .s4{background: #000;}
+        .s5{background: url(images/bg_5.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
+        .s6{background: url(images/bg_6.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
+        .s7{background: url(images/bg_7.jpg)  no-repeat; background-size: cover;}
+        
+       
+        
+        
+        /*Content1*/
+        .logo{position: relative;width: 45%; height: auto; margin: 0 auto; display: block; height: 45%; top: 200px;}
+        .mainTitle{text-align: center;position: relative; top: 170px;}
+        .mainTitle>p{position: relative; height: 40px;color: #8e8e8e; letter-spacing: 5px; font-size: 24px; cursor: default;}
+        .mainTitle h4{position: relative; width: 20%; margin: 0 auto; background
+            : rgba(0,0,0,0.5); line-height: 80px; border-radius: 5px; cursor: pointer; transition: 0.5s; letter-spacing: 3px;}
+        .mainTitle h4:hover{box-shadow: 250px 10px 100px inset #a5060a; color: #eee; transition: 1s; }
+        .mainTxt>div{position: relative; left: 0; top: 30px; width: 100%; height: 350px;}
+        .mainTxt>div>ul{position: absolute; left: 0; top: 100px; width: 850px; border-top: 2px solid #fff;}
+        .mainTxt>div>ul li{position: absolute; top: 0; cursor: pointer;}
+        .mainTxt>div>ul li:nth-child(1){left: -5%;}
+        .mainTxt>div>ul li:nth-child(2){left: 50%;}
+        .mainTxt>div>ul li::before{display: block; position: absolute; left: 50%; top: -28%; width: 48px; height: 48px; background-color: #000; border: 2px solid #fff; border-radius: 100%; transform: translateX(-50%); content: '';}
+        .years{width: 100%; margin: 0 auto; text-align: center;}
+        .years>div{position: relative; width: 50%;height: 350px; margin: 0 auto;}
+        .years>div>ul{position: relative;top: 100px;width: 80%;border-top:2px solid #fff;}
+        .years>div>ul>li{position: absolute;top: 0;cursor: pointer}
+        .years>div>ul>li:before{display: block;position: absolute;top: -16%;width: 48px;height: 48px;background-color: #000;border: 2px solid #fff;border-radius: 100%;transform: translateX(0%);content:"";}
+        .years>div>ul>li:after{display: block;position: absolute;left: 20%;top: -8%;width:0;height: 0;background-color: #ef2e2e;border-radius: 100%;content: "";transition:0.3s ease;}
+        .years>div>ul>li:nth-child(1):hover:after{left:12.5%;top: -7.5%;width: 30px;height:30px;}
+        .years>div>ul>li:nth-child(2):hover:after{left:11%;top: -7.5%;width: 30px;height:30px;}
+        .years>div>ul>li:nth-child(1){left: 0%;}
+        .years>div>ul>li:nth-child(2){left: 60%;}
+        .years>div>ul>li:nth-child(1) a{color: #fff;text-align: center;position: relative; left: -18px; }
+        .years>div>ul>li:nth-child(2) a{color: #fff;text-align: center;position: relative; left: -22px; }
+        .years>div>ul>li>a:after{display: block;width: 0;margin: 0 auto;content:"";border-bottom: 2px solid #ef2e2e;transition:width .3s ease; position: relative; top: -30px;}
+        .years>div>ul>li:hover>a:after{width: 100%; }
+        .years>div>ul>li>a>h3{height: 80px;line-height:40px;font-size:25px;margin-top: 30px; letter-spacing: 5px;}
+        .years>div>ul>li>a>p{font-size: 18px;position: relative; top: -40px; font-weight: bold; letter-spacing: 3px;}
+        .years>div>div{position: absolute;left:80%;top: 80px;width: 200px;height: 47px;font-size:20px;}
+        .years>div>div:after{display: block;width:0;height: 40px;margin: 0 auto;content: "";border-bottom: 2px solid #ef2e2e;transition:width .3s ease}
+        .years>div>div:hover:after{width: 80%; text-align: center; margin: 0 auto;}
+        .years>div>div>a{display: block;position: absolute;left: 40%;top: 40%;color: #fff; letter-spacing: 3px;transform: translate(-40%,-50%); font-weight: bold; width: 80%; text-align: center; margin: 0 auto;padding-right: 10px;}
+        .years .fa-angle-right{font-size: 24px;position: absolute; margin-left: 10px;}
+        
+        
+        /*Content2*/
+        .con2>div{float: left; width: 50%; height: 100%;}
+        .con2:after{content:''; display: block; clear: both;}
+        .con2_Limg{background: url(images/con2_bg2.jpg)30% no-repeat; background-size: cover;}
+        .con2_Rimg{background: url(images/con2_bg1.jpg)70% no-repeat; background-size: cover;}
+        .con2>article{position: absolute; width: 100%; text-align: center; top: 20%;}
+        .con2>article .con2_date{font-size: 18px;}
+        .con2>article h3{font-size: 48px; margin-bottom: 40px; margin-top: 20px;}
+        .con2>article .con2_txt{font-size: 28px; width: 34%; margin: 0 auto; line-height: 35px;}
+        
+        /*Content3*/
+        .con3>h3{font-size: 48px; text-align: center; position: relative; top: 200px;}
+        .con3>h3>div{width: 20%; position: absolute; float: left; height: 2px; background: #fff; top: 20px;}
+        .Con3_left{left: 0;}
+        .Con3_right{right: 0;}
+        .Con3_Box{position: relative; width: 80%; height: 60%; margin: 0 auto; top: 300px;}
+        .Con3_Box>div{float: left; width: 50%;}
+        .Con3_Box h4{font-size: 28px; line-height: 40px;}
+        .Con3_Box p{font-size: 22px; line-height: 22px;}
+        .Con3_txt1{height: 30%;}
+        .Con3_txt2{height: 35%;}
+        .Con3_txt3{height: 35%;}
+        .Con3_txt4{height: 40%;}
+        .Con3_txt5{height: 40%;}
+        
+        /*Content4*/]
+        .con4{width: 100%; height: 100%;}
+        .con4>div{float: left; overflow: hidden; color: #fff;}
+        .con4>div:hover h4{left: 0px;}
+        .con4>div:hover p{left: 0px;}
+        .con4>.Con4_img1:hover{box-shadow : rgba(0,0,0,0.4) 0 0 0 9999px; z-index: 9;}
+        .con4>.Con4_img2:hover{box-shadow : rgba(0,0,0,0.4) 0 0 0 9999px; z-index: 9;}
+        .con4>.Con4_img3:hover{box-shadow : rgba(0,0,0,0.4) 0 0 0 9999px; z-index: 9}
+        .con4>.Con4_img4:hover{box-shadow : rgba(0,0,0,0.4) 0 0 0 9999px; z-index: 9}
+        .con4>.Con4_img5:hover{box-shadow : rgba(0,0,0,0.4) 0 0 0 9999px; z-index: 9}
+        
+        .con4 h4{font-size: 30px; text-align: left; position: absolute; bottom: 50%;background: rgba(0,0,0,0.4);line-height: 60px; padding-right: 30px; text-indent: 20px; left: -100%; transition: 0.5s;}
+        .con4 p{font-size: 24px;  position: absolute; bottom: 40%; background: rgba(0,0,0,0.4);line-height: 48px; padding-right: 30px; left: -100%;  transition: 0.5s; text-indent: 20px;}
+        .con4:after{content: ''; display: block; clear: both;}
+        .Con4_img1{background: url(images/Con4_img1.jpg) no-repeat; width: 60%; height: 50%; background-size: cover;
+        background-position: 100% 0%;overflow: hidden; transition: 0.5s; position: relative;}
+        .Con4_img2{background: url(images/Con4_img2.jpg) no-repeat; width: 40%; height: 50%; background-size: cover;
+        background-position: 90% 0%;overflow: hidden; transition: 0.5s; position: relative;}
+        .Con4_img3{background: url(images/Con4_img3.jpg) no-repeat; width: 25%; height: 50%; background-size: cover;
+        background-position:  40% 0%;overflow: hidden; transition: 0.5s; position: relative;}
+        .Con4_img4{background: url(images/Con4_img4.jpg) no-repeat; width: 25%; height: 50%; background-size: cover;
+        background-position: 25% 0%; overflow: hidden; transition: 0.5s; position: relative;}
+        .Con4_img5{background: url(images/Con4_img5.jpg) no-repeat; width: 50%; height: 50%; background-size: cover;
+        background-position: 0% 100%;overflow: hidden;transition: 0.5s; position: relative;}
+        
+        /*Content5*/
+        .con5>h3{font-size: 48px; text-align: center; position: relative; margin-top: 100px; margin-bottom: 50px; color: #f9f9f9;}
+        .con5>h3>div{width: 20%; position: absolute; float: left; height: 2px; background: #f9f9f9; top: 20px;}
+        .con5_left{left: 0;}
+        .con5_right{right: 0;}
+        .con5{width: 100%; height: 100%; color: #251e1e;}
+        .con5>div{float: left; margin-top: 100px;}
+        .con5::after{content: ''; display: block; clear: both;}
+        .Con5_imgBox{width: 600px; height: 300px; overflow: hidden;}
+        .Con5_imgBox>div{transition: 0.3s;}
+        .con5>div:hover .Con5_imgBox>div{transform: scale(1.1);}
+        .con5>div:hover.Con5_console .Con5_img{box-shadow: 10px 10px 999px inset #1f6181;}
+        .con5>div:hover.Con5_pc .Con5_img{box-shadow: 10px 10px 999px inset #a5060a;}
+        .con5>div:hover.Con5_moblie .Con5_img{box-shadow: 10px 10px 999px inset #dfb230;}
+        .con5>div:hover .Con5_txt{transition: 1s; top: -50px;}        
+        .Con5_txt{background: #eee; height: 200px; width: 600px; position: relative; top: 0; transition: 0.5s;}      
+        .Con5_console{width: 30%; height: auto; overflow: hidden; margin-right: 1%; margin-left: 2%; }
+        .Con5_pc{width: 30%; height: auto; overflow: hidden; margin: 0 auto;  margin-right: 1.5%; margin-left: 1.5%;}
+        .Con5_moblie{width: 30%; height: auto; overflow: hidden;  margin: 0 auto;  margin-right: 2%; margin-left: 1%;}
+        .Con5_console .Con5_img{background: url(images/Con5_img1.jpg); height: 300px; background-size: cover; }
+        .Con5_pc .Con5_img{background: url(images/Con5_img3.jpeg); height: 300px; background-size: cover;}
+        .Con5_moblie .Con5_img{background: url(images/Con5_img2.png); height: 300px;background-size: cover;}
+        .con5 span{font-size: 16px; padding: 5px 20px 5px 20px; line-height: 45px; color: #f9f9f9; margin-left: 10px;}
+        .con5 h4{font-size: 26px; line-height: 65px; text-indent: 20px; cursor: pointer;}
+        .con5 p{font-size: 24px; width: 70%; padding-left: 20px;}
+        .con5 h5{font-size: 22px; text-align: center; margin-top: 18px; height: 60px; line-height: 60px; color: #f9f9f9; transition: all 0.5s; cursor: pointer;}
+        
+        /*Content6*/
+        .con6{width: 100%; height: 100%; position: relative; background: rgba(0,0,0,0.1)}
+        .con6>h3{font-size: 48px; text-align: center; position: relative; margin-top: 100px; margin-bottom: 50px; color: #f9f9f9;}
+        .con6>h3>div{width: 20%; position: absolute; float: left; height: 2px; background: #f9f9f9; top: 20px;}
+        .con6_left{left: 0;}
+        .con6_right{right: 0;}
+        .con6 video{width: 70%;  height: 65%;margin: 0 auto; position: relative; left: 15%; top: 0px;}
+        
+        /*Content7*/
+        .con7_txt{position: relative; width: 100%; height: 80%; text-align: center;}
+        .con7_join{position: absolute; width: 100%; height: 10%; background: rgba(165,6,10,0.6); bottom: 0; transition: 0.5s;}
+        .con7_join:hover{height: 35%; background: rgba(0,0,0,0.8)}
+        .con7_join h3{text-align: center; font-size: 26px; line-height: 100px;}
+        .con7_join ul{width: 50%; margin: 0 auto; text-align: center;}
+        .con7_join ul:after{content: ''; display: block; clear: both;}
+        .con7_join ul li{float: left; width: 16.66%;}
+        .con7_join ul li i{font-size: 30px; transition: 0.3s; cursor: pointer;}
+        .con7_join input{width: 20%; height: 35px; line-height: 35px; margin-top: 30px; font-weight: bold; font-size: 18px; border: none; text-indent: 20px;}
+        .con7_join a{font-size: 18px; background: #a5060a; height: 35px; line-height: 35px; display: inline-block; width: 300px; color: #f9f9f9; font-weight: bold; transition: 0.5s;}
+        .con7_join a:hover{color: #a5060a; background: #3c3c3c;}
+        .con7_join p{width: 25%; font-size: 12px; margin: 0 auto; text-align: left; margin-top: 20px; line-height: 13px;}
+        .fa-youtube:hover{color:#fe0000;}
+        .fa-twitch:hover{color:#6441a5;}
+        .fa-twitter:hover{color:#32cdfd;}
+        .fa-facebook-square:hover{color:#3c5a99;}
+        .fa-instagram:hover{color:#ef5331;}
+        .fa-discord:hover{color:#7289d9;}
+        
+        /*footer*/
+        footer{position: relative; bottom: 0; width: 100%; height: 20%; background: rgba(0,0,0,1);}
+        .footer_list{width: 60%; margin: 0 auto;}
+        .footer_list:after{content: ''; display: block; clear: both;}
+        .footer_list li{float: left; width: 20%; text-align: center; line-height: 50px; font-size: 22px; margin-top: 20px;}
+        .footer_list li i{margin-right: 10px;}
+        footer .footer_logo{width: 5%;  height: 5%; margin: 0 auto; text-align: center; display: block;}
+        footer p{text-align: center; font-size: 12px; width: 50%; margin: 0  auto;}
+        footer address{text-align: center; font-size: 12px; margin-top: 15px;}    
+        
+    </style>
+    <style>
+    /*미디어쿼리*/
+        @media screen and (max-width:1500px) and (min-width: 1001px){
+            header ul{width: 70%; left: 30%;}
+            header ul li a{font-size: 16px;}
+            .logo{width: 40%; height: 20%; margin-top: 100px;}
+            .mainTitle h4{width: 40%; font-size: 24px;}
+            .years>div{margin: 0; margin-left: 15%; width: 70%;}
+            .years>div>ul>li:nth-child(1):hover:after{left:13%;top: -7.5%;}
+            .years>div>ul>li:nth-child(2):hover:after{left:11.5%;top: -7.5%;}
+            .con2>article{top: 8%;}
+            .con2>article .con2_txt{width: 40%; margin-top: 300px;}
+            .con3 h3{top: 150px;}
+            .Con3_Box{top: 200px; height:86%;}
+            .Con3_Box h4{line-height: 60px;}
+            .Con3_Box p{display: none;}
+            .Con3_Box>div{width: 100%; height: auto; overflow: hidden;}
+            .Con3_txt1 p{display:block;}
+            .Con3_txt2 p{display:block;}
+            .Con3_txt3 p{display:block;}
+            .Con3_txt4 p{display:block;}
+            .Con3_txt5 p{display:block;}
+            .Con4_img1{width: 100%;}
+            .Con4_img2{width: 50%;}
+            .Con4_img3{width: 50%;}
+            .Con4_img4{display: none;}
+            .Con4_img5{display: none;}            
+            .con5 h3{top: 50px; margin-top: 0; margin-bottom: 0;}
+            .con5>div{margin-top: 150px;}
+            .Con5_imgBox{width: 500px;}
+            .Con5_txt{width: 500px;}
+            .con5 p{font-size: 20px;}
+            .Con5_console{width: 500px; margin: 0; margin-left: 3%; margin-right: 1.5%;}
+            .Con5_pc{width: 500px; margin: 0; margin-left: 1.5%; margin-right: 3%;}
+            .Con5_moblie{display: none;}
+            .con6>h3{margin-top: 50px; margin-bottom: 0;}
+            .con6 video{width: 100%; left: 0; height: 90%;}
+            .con7_join ul{width: 80%;}
+            .con7_join p{width: 80%;}
+            .con7_join input{width: 75%;}
+            .con7_join a{width: 75%;}
+            .footer_list span{display: none;}
+            footer p{width: 80%; letter-spacing: 1px;}
+            footer .footer_logo{width: 10%; height: 10%;}
+        }
+        @media screen and (max-width:1000px) and (min-width:300px){
+            header ul{width: 100%; left: 0%;}
+            header ul li a{font-size: 14px; width: 50%; line-height: 50px;}
+            .logo{width: 80%; height: 15%; margin-top: 150px;}
+            .mainTitle h4{width: 60%; font-size: 24px;}
+            .years>div{margin: 0; margin-left: 5%; width: 80%;}
+            .con2_Limg{background: url(images/con2_bg2.jpg)45% no-repeat; background-size: cover;}
+            .con2_Rimg{background: url(images/con2_bg1.jpg)55% no-repeat; background-size: cover;}
+            .con2>article{top: 10%;}
+            .con2>article .con2_txt{width: 80%; margin-top: 250px;}
+            .con3 h3{top: 150px;}
+            .Con3_Box{top: 180px; height:86%;}
+            .Con3_Box h4{line-height: 60px;}
+            .Con3_Box p{display: none;}
+            .Con3_Box>div{width: 100%; height: auto; overflow: hidden;}
+            .Con3_txt1 p{display:block;}
+            .Con3_txt2 p{display:block;}
+            .Con3_txt3 p{display:block;}
+            .Con4_img1{width: 100%;}
+            .Con4_img2{width: 100%;}
+            .Con4_img3{display: none;}
+            .Con4_img4{display: none;}
+            .Con4_img5{display: none;}
+            .Con5_imgBox{width: 400px;}
+            .con5{top: 60px;}
+            .con5>h3{opacity: 0;}
+            .con5 h3{top: 50px; margin-top: 0; margin-bottom: 0;}
+            .con5>div{margin-top: 0px; float: none;}
+            .Con5_imgBox{width: 500px;}
+            .Con5_txt{width: 500px; height: 190px;}
+            .con5 p{font-size: 20px;}
+            .Con5_console{width: 500px;margin: 0 auto; margin-top: 50px;}
+            .Con5_pc{width: 500px; margin: 0; margin: 0 auto; margin-top: 50px;}
+            .Con5_moblie{display: none;}
+            .con6>h3{margin-top: 50px; margin-bottom: 0; display: none;}
+            .con6 video{width: 300%; left: 0; height: 90%; transform: rotate(90deg); left: -100%;}
+            .con7_join ul{width: 80%;}
+            .con7_join p{width: 80%;}
+            .con7_join input{width: 75%;}
+            .con7_join a{width: 75%;}
+            .footer_list span{display: none;}
+            footer p{width: 80%; letter-spacing: 1px;}
+            footer .footer_logo{width: 15%; height: 10%;}
+            
+        }
+        
+    </style>
+    
+</head>
+<body>
+       <header class="head-up">
+       <ul>
+           <li><a href="FirstStory.html">FIRST STORY</a></li>
+           <li><a href="OfficalForum.html">OFFICAL FORUM</a></li>
+           <li><a href="Gethelp.html">GET HELP</a></li>
+           <li class="BuyNow"><a href="#">BUY NOW</a></li>
+       </ul>
+       </header>
+    <div id="wrap">
+        <div class="section s1">
+            <div class="Content Title">
+            <img src="images/logo.png" alt="main_logo" class="logo">
+            <div class="mainTitle">
+                <p>death is not an escape</p>
+                <h4>START HUNTING</h4>
+                <article class="years">
+            <div>
+                <ul>
+                    <li><a href="FirstStory.html">
+                        <h3>2019</h3>
+                        <p>FIST STORY</p>
+                    </a></li>
+                    <li><a href="OfficalForum.html">
+                        <h3>2020</h3>
+                        <p>GRAND OPEN</p>
+                    </a></li>
+                </ul>
+                <div>
+                    <a href="#">Our Future <i class="fas fa-angle-right"></i></a>
+                </div>
+            </div>
+        </article>                
+            </div>
+            </div>
+        </div>
+        <div class="section s2"><div class="Content con2">
+            <div class="con2_Limg"></div>
+            <article>
+            <p class="con2_date">11.11.2019</p>
+            <h3>Welcome to The STAY ALIVE</h3>
+            <p class="con2_txt">During our 3rd Anniversary stream last May, we have revealed a brand-new
+             feature coming this fall – The Archives. With a couple of weeks await from the official launch of this feature, we are happy to present it to players in this news.</p>
+            </article>
+            <div class="con2_Rimg"></div>
+            </div></div>
+        <div class="section s3">
+           <div class="Content con3">
+           <h3><div class="Con3_left"></div>INFORMATION<div class="Con3_right"></div></h3>
+           <div class="Con3_Box">
+               <div class="Con3_txt1">
+                   <h4>FOUR CHAPTERS</h4>
+                   <p>Year 4 will feature four major Chapters. Each Chapter introduces a new fantasy in the STAY ALIVE universe, bringing new characters with their own backstory, unique gameplay mechanics, progression, and set of cosmetics. Based on the roadmap and our objectives, these major content drops might also feature new game mechanics, technical updates, quality of life features, general game balancing, and bug fixes.</p>
+               </div>
+               <div class="Con3_txt2">
+                   <h4>LIVE DESIGN</h4>
+                   <p>This year, we will be investing more effort reworking some of our “legacy” maps and characters that have been released in the early lifecycle of the game. With 3 years under our belt, we have learned a lot thanks to player’s feedback, player’s behavior, and gathering data every day. The Nightmare or “Freddy” will be our first focus for the Killer rework this year. We will also launch the map update initiative which consists of reworking targeted maps with revised level and art design to bring them up to date.</p>
+               </div>
+               <div class="Con3_txt3">
+                   <h4>HEALTH</h4>
+                   <p>We are heavily invested in the future of STAY ALIVE and to do so, we need a solid infrastructure. We are planning on launching Dedicated Servers, which will improve connectivity to our game servers and allow a better handling of players disconnects during matches. We will continuously improve performance on all platforms, aiming to have a baseline of 60 FPS on PS4 and XB1 for Summer 2019. We will also address major game irritants: hitboxes and attack detection, pallet/window vaulting interactions, and latency and connection issues. Finally, we are revising our party creation system and friends management, which will allow for Survive with Friends groups to stay together game after game.</p>
+               </div>
+               <div class="Con3_txt4">
+                   <h4>NEW GOALS FOR PLAYERS</h4>
+                   <p>During Year 4, STAY ALIVE will be growing with the addition of The Archives – a new meta-feature that brings new challenges and rewards. In each of The Archives’ tomes, players will decide which path to take and what quests to complete. Furthermore, they will discover journal entries and cinematics expanding on the lore of our characters as well as other rewards, like blood points and charms. Only the most dedicated STAY ALIVE Lore-hunters will complete the increasingly challenging levels of each tome.
+               
+                   Alongside The Archives comes The Rift, a new way to unlock even more cosmetics for your Survivors and Killers. By completing The Archives’ Quests and competing in trials, you'll work towards unlocking the many tiers within The Rift. Thematic cosmetics are up for grabs on a free track and a paid track is available for even more rewards. Be fast though, as The Rift is temporary and will eventually close!
+               
+                   The development team is also continuing to rework the ranked season. The rank rework has an extended season that includes more ranks and rewards throughout your progression. We want the rank progression ladder to be inclusive and meaningful.</p>
+               </div>
+               <div class="Con3_txt5">
+                   <h4>EXPANSION</h4>
+                   <p>We are very pleased to say that STAY ALIVE has an expansion plan and will be released on new platforms. Currently, gamers can play STAY ALIVE on Steam, PS4 and XB1. As of 2019, gamers will be able to play STAY ALIVE on Switch, Mobile and XB1 Game Pass. We will also refresh existing languages and add news ones on consoles and PC.</p>
+               </div>
+           </div>
+            </div></div>
+        <div class="section s4"><div class="Content con4">
+        <div class="Con4_img1"><h4>Game Play</h4><p>They're coming.</p></div>
+        <div class="Con4_img2"><h4>Hit Zombie</h4><p>We need to get out of here.</p></div>
+        <div class="Con4_img3"><h4>Alive Peple</h4><p>I have to survive.</p></div>
+        <div class="Con4_img4"><h4>Run Zombie</h4><p>Get away! Somebody help me!</p></div>
+        <div class="Con4_img5"><h4>Attack Zombie</h4><p>There's nowhere else to back down.</p></div>
+        </div></div>
+        <div class="section s5"><div class="Content con5">
+           <h3><div class="con5_left"></div>PATCH NOTES<div class="con5_right"></div></h3>
+           <div class="Con5_console">
+               <div class="Con5_imgBox"><div class="Con5_img"></div></div>
+               <div class="Con5_txt">
+                   <span style="background: #1f6181">CONSOLE</span>
+                   <h4>CONSOLE UPDATE 5.1 - PATCH NOTES</h4>
+                   <P>Update 5.1 is here for Xbox and PS4 and we're kicking off Season Open with a refresh of our roadmap with new content...</P>
+                   <h5  style="background: #1f6181">READ MORE</h5>
+               </div>
+           </div>
+           <div class="Con5_pc"><div class="Con5_imgBox"><div class="Con5_img"></div></div>
+               <div class="Con5_txt">
+                   <span style="background: #a5060a">PC</span>
+                   <h4>PC UPDATE 5.1 - PATCH NOTES</h4>
+                   <P>Update 5.1 is here for PC and  we're kicking off Season Open with a refresh of our roadmap with new content...</P>
+                   <h5  style="background: #a5060a">READ MORE</h5>
+               </div>
+           </div>
+           <div class="Con5_moblie">
+               <div class="Con5_imgBox"><div class="Con5_img"></div></div>
+               <div class="Con5_txt">
+                   <span style="background: #dfb230">MOBLIE</span>
+                   <h4>MOBLIE UPDATE 5.1 - PATCH NOTES</h4>
+                   <P>Update 5.1 is here for APPLE and ANDROID we're kicking off Season Open with a refresh of our roadmap with new content...</P>
+                   <h5 style="background: #dfb230">READ MORE</h5>
+               </div>
+           </div>
+            </div></div>
+        <div class="section s6"><div class="Content con6">
+            <h3><div class="con6_left"></div>MEDIA TRAILER<div class="con6_right"></div></h3>
+            <video autoplay="autoplay" loop="loop" muted controls>
+            <source type="video/mp4" src="images/Concept_Trailer.mp4">
+            </video>
+            </div></div>
+        <div class="section s7"><div class="Content con7">
+            <div class="con7_txt">
+            <div class="con7_join">
+                <h3>JOIN THE STAY ALVIE COMMUNITY</h3>
+                <ul>
+                    <li><i class="fab fa-youtube"></i></li>
+                    <li><i class="fab fa-twitch"></i></li>
+                    <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-facebook-square"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
+                    <li><i class="fab fa-discord"></i></li>
+                </ul>
+                <input type="text" placeholder="Your EMAIL">
+                <a href="login">JOIN TO STAY ALVIE</a>
+                <p>귀하는 JHSTDUIO Interactive Inc. 및 그 계열사가 개인 정보 보호 정책 및 이용 약관 에 따라 귀하가 동의하기로 한 STAY ALIVE에 대한 정보를 제공하기 위해이 양식으로 제공 한 개인 데이터를 수집, 사용 및 공개 할 수 있음에 동의합니다.</p>
+            </div>
+            </div>
+            <footer>
+            <ul class="footer_list">
+                <li><i class="fab fa-playstation"></i><span>PS4</span></li>
+                <li><i class="fab fa-xbox"></i><span>XBOX ONE</span></li>
+                <li><i class="fab fa-steam"></i><span>STEAM</span></li>
+                <li><i class="fab fa-windows"></i><span>Window 10</span></li>
+                <li><i class="fab fa-google-play"></i><span>Google Play</span></li>
+            </ul>
+            <p>PlayStation family logo mark"PlayStation" andPlayStation 4 logoare registered trademarks or trademarks of Sony Interactive Entertainment Inc.
+            ©JHSTUDIO Corporation. Steam and the Steam logo are trademarks and/or registered trademarks of JHSTUDIO Corporation in the KOR. and/or other countries</p>
+            <h3><img src="images/logo.png" alt="main_logo" class="footer_logo"></h3>
+            <address>COPYRIGHT © 2019 RED BARRELS INC. ALL RIGHTS RESERVED.</address>
+            
+            </footer>
+            </div></div>
+    </div>
+    
+    <ul class="Pos_menu">
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+       </ul>
+       
+</body>
+<style>
+    .ytp-title-text{opacity: 0 !important;}
+</style>
+</html>

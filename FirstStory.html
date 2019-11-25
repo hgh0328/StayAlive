@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>STAY ALVIE > FIRST STORY</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">    
+    <link rel="stylesheet" href="css/main.css">  
+    
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/swiper.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    
+    <link rel="stylesheet" href="css/swiper.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript">
+        $(function(){
+            $(".Pos_menu li").click(function(){  
+                     var i = $(".Pos_menu li").index(this);
+                     var s = $(".section").eq(i).offset().top;
+                       $(".Pos_menu li i").removeClass();
+                       $(".Pos_menu li i").addClass("fas fa-skull");
+                       $(".Pos_menu li i").eq(i).removeClass();
+                       $(".Pos_menu li i").eq(i).addClass("fab fa-chrome fa-spin on");
+                       $("html,body").stop().animate({scrollTop:s});
+                 });
+
+            var deflut=0;
+            $(".Pos_menu li i").removeClass();
+            $(".Pos_menu li i").addClass("fas fa-skull");
+            $(".Pos_menu li i").eq(deflut).removeClass();
+            $(".Pos_menu li i").eq(deflut).addClass("fab fa-chrome fa-spin on");
+            $(window).scroll(function(){
+                var scroll = $(window).scrollTop();
+                var ht= $(window).height();
+
+            for(var i=0; i<5; i++){
+                if(scroll >=ht*(i) && scroll < ht*(i+1)){                    
+                    $(".Pos_menu li i").removeClass();
+                    $(".Pos_menu li i").addClass("fas fa-skull");
+                    $(".Pos_menu li i").eq(i).removeClass();
+                    $(".Pos_menu li i").eq(i).addClass("fab fa-chrome fa-spin on");
+                }
+                else if(scroll == 0){
+                    $(".Pos_menu li i").removeClass();
+                    $(".Pos_menu li i").addClass("fas fa-skull");
+                    $(".Pos_menu li i").eq(0).removeClass();
+                    $(".Pos_menu li i").eq(0).addClass("fab fa-chrome fa-spin on");
+                };               
+            }
+            }); 
+            var select = ".section";
+            $(select).each(function (index) {
+                
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveScorll = $(window).scrollTop();
+                    var section = $(select).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(section).next() != undefined) {
+                            try{
+                                moveScorll = $(section).next().offset().top;
+                                $('header').removeClass('head-up').addClass('head-down');
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(section).prev() != undefined) {
+                            try{
+                                moveScorll = $(section).prev().offset().top;
+                                
+                            }catch(e){}
+                        }
+                    }
+                    $(window).scroll(function(){
+                        var windowScroll = $(window).scrollTop();
+                        if(windowScroll == 0){
+                        $('header').removeClass('head-down').addClass('head-up');
+                        };
+                    });
+                     
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveScorll + 'px'
+                    },{duration: 1200, complete: function(){}});
+                    
+                });
+            });
+            
+            $(".character_img li").hide();
+            $(".character_img li").eq(0).fadeIn();
+            $(".character_list li").eq(0).addClass("on");
+            
+            $(".map_txt li").hide();
+            $(".map_pin_list li").hide();
+            $(".map_list li").eq(0).addClass("on");
+            $(".map_txt li").eq(0).fadeIn();
+            $(".map_pin_list li").eq(0).fadeIn();
+            
+            $(".weapons_list li").hide();
+            $(".weapons_list li").eq(0).fadeIn();
+            $(".weapons li").eq(0).addClass("on");
+            
+            $(".character_list li").click(function(){
+                var i = $(this).index();
+                $(".character_list li").removeClass("on");
+                $(".character_list li").eq(i).addClass("on");
+                $(".character_img li").fadeOut();
+                $(".character_img li").eq(i).fadeIn();                
+                });
+            
+            $(".map_list li").click(function(){
+                var i = $(this).index();
+                $(".map_list li").removeClass("on");
+                $(".map_list li").eq(i).addClass("on");
+                $(".map_txt li").hide();
+                $(".map_txt li").eq(i).fadeIn();
+                $(".map_pin_list li").fadeOut();
+                $(".map_pin_list li").eq(i).fadeIn(); 
+                });
+            $(".weapons li").click(function(){
+                var i = $(this).index();
+                $(".weapons li").removeClass("on");
+                $(".weapons li").eq(i).addClass("on");
+                $(".weapons_list li").hide();
+                $(".weapons_list li").eq(i).fadeIn();
+            });
+
+        });
+    </script>
+    
+    <style>
+        /*defalut setting*/
+        *{margin: 0; padding: 0;}
+        body::-webkit-scrollbar {display: none;} 
+        html,body{ margin:0; padding:0; width:100%; height:100%; font-family: 'Big Shoulders Text', cursive; color: #f9f9f9;}
+        
+        #wrap {width: 100%; height: 100%;position: relative;}
+        
+        /*header*/
+        header{position: fixed; width: 100%; height: auto; z-index: 99; font-family: 'Kanit', sans-serif;}
+        .head-up{background: rgba(0,0,0,0.1); transition: 0.5s;}
+        .head-down{background: rgba(0,0,0,0.7); transition: 0.5s;}
+        header ul{width: 60%; position: relative; left: 40%;}
+        header ul li a{float: left; width: 20%; line-height: 100px; text-align: center; font-size: 20px; cursor: pointer; letter-spacing: 1px; border-top: 2px solid rgba(0,0,0,0); border-bottom: 2px solid rgba(0,0,0,0);}
+        header ul li a:hover{color: #a5060a; transition: 0.3s; border-top: 2px solid #a5060a; border-bottom: 2px solid #a5060a; font-weight: bold;}
+        header ul:after{content: ''; display: block; clear: both;}
+        .BuyNow a{background: #a5060a; border-top: 2px solid #a5060a; border-bottom: 2px solid #a5060a;}
+        .BuyNow a:hover{color: #251e1e;}
+        
+        
+        .section{ width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
+        .Content{position: relative; width: 100%; height: 100%;}
+       
+        
+        .Pos_menu{position: fixed; right: 1%; top: 40%;  text-align: center; z-index: 99999;}
+        .Pos_menu li{width: 30px; height: 30px; margin-top: 30px;}
+        .Pos_menu li i:hover{color: #a5060a; transition: 0.3s;}
+        .Pos_menu li i{color: rgba(255,255,255,0.3); font-size: 20px; display: inline-block;}
+        .Pos_menu li i.on{color: #a5060a; font-size: 36px;}
+        
+        .s1{background: #000; overflow: hidden;}
+        .s2{background: url(images/FristStroy/FS_bg1.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
+        .s3{background: url(images/FristStroy/map.jpg) no-repeat; background-size: cover; background-attachment: fixed; background-position: center center;}
+        .s7{background: url(images/bg_7.jpg)  no-repeat; background-size: cover;}
+        
+        .con2{height: 100%; background: rgba(0,0,0,0.3); padding-top: 100px;}
+        
+        /*click*/
+        .here a{color: goldenrod;  border-bottom: 2px solid goldenrod; font-weight: bold;}
+        .fa-house-damage{font-size: 30px; line-height: 90px;}
+        
+       
+        
+        
+        /*Content1 캐릭터*/
+        .videotag{background: #000; min-width: 100%; min-height: 100.3%; width: auto; height: auto; position: absolute; left: 0; top: 0px;}
+        .character_txt h2{font-size: 48px; letter-spacing: 1px;}
+        .character_txt{position: absolute;  z-index: 9; top: 200px; left: 5%; cursor: default; width: 95%;}
+        .character_list{margin-top: 30px; width: 20%; position: relative; left: 0;}
+        .character_list li{line-height: 60px; font-size: 30px; cursor: pointer; width: 100%; margin-top: 20px;transition: 0.3s;}
+        .character_list li:hover{border-left: 10px solid; text-indent: 50px; letter-spacing: 10px;}
+        .character_list li.on{border-left: 10px solid; text-indent: 50px; letter-spacing: 10px; color: #a5060a;}
+        .character_list li:hover{color: #a5060a;}
+        .character_img{position: absolute; width: 100%; top: 0;}
+        .character_img li{ position: absolute; width: 100%; top: 140px;}
+        .character_img li img{position: absolute; right: 0; transition: 0.3s;}
+        .character_summary{position: absolute; top: 300px; left: 0; width: 50%; height: 50%;}
+        .character_summary h3{font-size: 100px; line-height: 110px;}
+        .character_summary p{font-size: 20px; line-height: 30px; width: 80%;}
+        .character_summary h4{font-size: 30px; line-height: 40px; margin-top: 10px;}
+        .character_summary em{font-weight: normal;}
+     
+        
+        /*Content2 무기*/
+        .swiper-slide{text-align: center;}
+        .swiper-container{position: relative; top: 100px;}
+        .weapons{position: relative; top: 4px; background: rgba(165,50,10,0.7); line-height: 80px;}
+        .weapons li{float: left; width: 16.66%; text-align: center; cursor: pointer;}
+        .weapons li.on{background: rgba(0,0,0,0.7);transition: 0.3s;}
+        .weapons:after{content: ''; display: block; clear: both;}
+        .weapons_list img{width: 80%;}
+        .weapons_list h3{font-size: 28px;line-height: 30px;}
+        .weapons_list span{font-size: 16px; letter-spacing: 1px;}
+        .weapons_list p{font-size: 22px; width: 60%; margin: 0 auto; text-align: left; margin-top: 10px;}
+        
+        /*Content3 지도*/
+        .map_listBox{position: relative; z-index: 999;
+        }
+        .map_listBox h2{font-size: 48px; letter-spacing: 1px; margin-left: 30px; line-height: 90px;}
+        .map_list li{font-size: 36px; padding-left: 30px; line-height: 50px; cursor: pointer; transition: 0.5s;}
+        .map_list li.on{border-left: 10px solid #a5060a; color: #a5060a; font-weight: bold; letter-spacing: 5px;}
+        .map_pin{position: absolute; width: 100%; height: 100%; top: 0; z-index: 9; overflow: hidden;}
+        .map_listBox{position: relative; width: 45%; top: 120px; left: 2%; background: rgba(0,0,0,0.7);height: 40%;}
+        .map_txt{margin-top: 15px; font-size: 22px; width: 80%; margin-left: 30px; color: #ccc; line-height: 24px;}
+        .line{width: 100px; height: 100px; border-radius: 100%; display: block;position: absolute; left: 0; top: 0; animation: ani1 infinite 5s; border-color: rgba(165,6,10,0); z-index: 1;}
+        @keyframes ani1{
+            from{transform: scale(1);}
+            to{transform: scale(3); border: 1px solid rgba(165,6,10,0.5); background: rgba(165,6,10,0.5);}
+        }
+
+        /*map1*/
+        .pin1_1{text-align: center; position: absolute; top: 70%; left: 75%;}
+        .pin1_1 p{font-size: 44px; line-height: 60px; letter-spacing: 1px;}
+        .pin1_2{position: absolute; top: 92%; left: 68%;}
+        .pin1_3{position: absolute; top: 88%; left: 90%;}
+        .pin1_4{position: absolute; top: 80%; left: 63.5%;}
+        .pin1_5{position: absolute; top: 95%; left: 80%;}
+        /*map2*/
+        .pin2_1{text-align: center; position: absolute; top: 16%; left: 57.5%;}
+        .pin2_1 p{font-size: 44px; line-height: 60px; letter-spacing: 1px;}
+        .pin2_2{position: absolute; top: 18%; left: 73%;}
+        .pin2_3{position: absolute; top: 17%; left: 86%;}
+        .pin2_4{position: absolute; top: 21%; left: 96.4%;}
+        .pin2_5{position: absolute; top: 15%; left: 47%;}
+        /*map3*/
+        .pin3_1{text-align: center; position: absolute; top: 53%; left: 22.3%;}
+        .pin3_1 p{font-size: 44px; line-height: 60px; letter-spacing: 1px;}
+        .pin3_2{position: absolute; top: 54%; left: 15%;}
+        .pin3_3{position: absolute; top: 52.5%; left: 4%;}
+        .pin3_4{position: absolute; top: 68%; left: 31.5%;}
+        .pin3_5{position: absolute; top: 74%; left: 15%;}
+        /*map4*/
+        .pin4_1{text-align: center; position: absolute; top: 38%; left: 63%;}
+        .pin4_1 p{font-size: 44px; line-height: 60px; letter-spacing: 1px;}
+        .pin4_2{position: absolute; top: 52%; left: 53%;}
+        .pin4_3{position: absolute; top: 59%; left: 67%;}
+        .pin4_4{position: absolute; top: 47.5%; left: 88.5%;}
+        .pin4_5{position: absolute; top: 38%; left: 72%;}
+        
+        /*호버*/
+        .fa-car:hover{color: #7289d9;}
+        .fa-utensils:hover{color: #f4c253}
+        .fa-ambulance:hover{color: #46bf49}
+        .fa-home:hover{color: #af108d}       
+        
+
+        
+        /*Content7*/
+        .con7_txt{position: relative; width: 100%; height: 80%; text-align: center;}
+        .con7_join{position: absolute; width: 100%; height: 10%; background: rgba(165,6,10,0.6); bottom: 0; transition: 0.5s;}
+        .con7_join:hover{height: 35%; background: rgba(0,0,0,0.8)}
+        .con7_join h3{text-align: center; font-size: 26px; line-height: 100px;}
+        .con7_join ul{width: 50%; margin: 0 auto; text-align: center;}
+        .con7_join ul:after{content: ''; display: block; clear: both;}
+        .con7_join ul li{float: left; width: 16.66%;}
+        .con7_join ul li i{font-size: 30px; transition: 0.3s; cursor: pointer;}
+        .con7_join input{width: 20%; height: 35px; line-height: 35px; margin-top: 30px; font-weight: bold; font-size: 18px; border: none; text-indent: 20px;}
+        .con7_join a{font-size: 18px; background: #a5060a; height: 35px; line-height: 35px; display: inline-block; width: 300px; color: #f9f9f9; font-weight: bold; transition: 0.5s;}
+        .con7_join a:hover{color: #a5060a; background: #3c3c3c;}
+        .con7_join p{width: 25%; font-size: 12px; margin: 0 auto; text-align: left; margin-top: 20px; line-height: 13px;}
+        .fa-youtube:hover{color:#fe0000;}
+        .fa-twitch:hover{color:#6441a5;}
+        .fa-twitter:hover{color:#32cdfd;}
+        .fa-facebook-square:hover{color:#3c5a99;}
+        .fa-instagram:hover{color:#ef5331;}
+        .fa-discord:hover{color:#7289d9;}
+        
+        /*footer*/
+        footer{position: relative; bottom: 0; width: 100%; height: 20%; background: rgba(0,0,0,1);}
+        .footer_list{width: 60%; margin: 0 auto;}
+        .footer_list:after{content: ''; display: block; clear: both;}
+        .footer_list li{float: left; width: 20%; text-align: center; line-height: 50px; font-size: 22px; margin-top: 20px;}
+        .footer_list li i{margin-right: 10px;}
+        footer .footer_logo{width: 5%;  height: 5%; margin: 0 auto; text-align: center; display: block;}
+        footer p{text-align: center; font-size: 12px; width: 50%; margin: 0  auto;}
+        footer address{text-align: center; font-size: 12px; margin-top: 15px;}    
+        
+    </style>
+    <style>
+    /*미디어쿼리*/
+        @media screen and (max-width:1500px) and (min-width: 1001px){
+            header ul{width: 70%; left: 30%;}
+            header ul li a{font-size: 16px;}
+            .con7_join ul{width: 80%;}
+            .con7_join p{width: 80%;}
+            .con7_join input{width: 75%;}
+            .con7_join a{width: 75%;}
+            .footer_list span{display: none;}
+            footer p{width: 80%; letter-spacing: 1px;}
+            footer .footer_logo{width: 10%; height: 10%;}
+            
+            /*character*/
+            .character_img li img{width: 70%; top: 210px; right: 0;}
+            .character_summary{width: 40%; height: auto;}
+            .character_summary h3{font-size: 90px; line-height: 100px;}
+            .character_summary p{font-size: 18px; line-height: 30px; width: 80%;}
+            .character_summary h4{font-size: 29px; line-height: 40px; margin-top: 10px;}
+            .character_summary em{font-weight: normal;}
+            
+            /*weapon*/
+            .weapons_list img{width: 100%;}
+            .weapons_list{top: 40px; position: relative; z-index: 0;}
+            .weapons_list h3{font-size: 38px;line-height: 30px;}
+            .weapons_list p{width: 80%; text-align: center;}
+            
+            /*map*/
+            .Pinhide{display: none;}
+            .map_listBox{width: 55%; top: 120px;background: rgba(0,0,0,0.7);height: 45%;}
+        }
+        @media screen and (max-width:1000px) and (min-width:300px){
+             header ul{width: 100%; left: 0%; }
+             header ul li{width: 100%;}
+             header ul li a{font-size: 16px; width: 50%; line-height: 50px;}
+            .BuyNow a{width: 100%;}
+            .fa-house-damage{font-size: 16px; line-height: 50px;}            
+            .con7_join ul{width: 80%;}
+            .con7_join p{width: 80%;}
+            .con7_join input{width: 75%;}
+            .con7_join a{width: 75%;}
+            .footer_list span{display: none;}
+            footer p{width: 80%; letter-spacing: 1px;}
+            footer .footer_logo{width: 15%; height: 10%;}
+            /*character*/
+            .character_img li{top: 0px;}
+            .character_img li img{width: 100%; top: 550px;}
+            .character_summary{width: 95%; top: 400px;}
+            .character_summary h3{font-size: 80px; line-height: 120px;}
+            .character_summary p{font-size: 18px; line-height: 30px; width: 80%; display: none;}
+            .character_summary h4{font-size: 29px; line-height: 40px; margin-top: 10px;}
+            .character_summary em{font-weight: normal;}
+            
+            /*weapon*/
+            .weapons{top: 60px; z-index: 9;}
+            .weapons li{width: 33.33%;}
+            .weapons_list{top: 80px; position: relative; z-index: 0;}
+            .weapons_list{transform: scale(2)}
+            .weapons_list img{width: 100%;}
+            .weapons_list p{display: none;}
+            
+            /*map*/
+            .Pinhide{display: none;}
+            .map_listBox{width: 70%; top: 170px;background: rgba(0,0,0,0.7);height: 52%;}
+            
+            
+        }
+        
+    </style>
+    
+</head>
+<body>
+       <header class="head-up">
+       <ul>
+           <li><a href="index.html"><i class="fas fa-house-damage"></i></a></li>
+           <li class="here"><a href="FirstStory.html">FIRST STORY</a></li>
+           <li><a href="OfficalForum.html">OFFICAL FORUM</a></li>
+           <li><a href="Gethelp.html">GET HELP</a></li>
+           <li class="BuyNow"><a href="#">BUY NOW</a></li>
+       </ul>
+       </header>
+    <div id="wrap">
+        <div class="section s1">
+           <div class="Content con1">
+              <div class="character_txt">
+                  <h2>About CHARACTER</h2>
+                  <ul class="character_list">
+                  <li>Aidan</li>
+                  <li>Grant</li>
+                  <li>Maya</li>
+                  <li>Heather</li>
+                  </ul>
+                  <ul class="character_img">
+                      <li class="Aidan">                      
+                      <img src="images/FristStroy/aidan.png" alt="Aidan">
+                      <div class="character_summary">
+                         <h3>Aidan</h3>
+                          <p>Aidan has always had a bit of a temper, but he used to repress it. Now he channels that emotion into his melee fighting style, letting him fully express himself through violence.</p>
+                          <h4>CLASS <em>TANK</em></h4>
+                          <h4>PRIMARY <em>SILENCED SHOTGUN</em></h4>
+                          <h4>SECONDARY <em>SILENCED PISTOL</em></h4>
+                          <h4>MELEE <em>BAT</em></h4>
+                      </div>
+                      </li>
+                      <li class="Grant">                      
+                      <img src="images/FristStroy/grant.png" alt="Grant">
+                      <div class="character_summary">
+                         <h3>Grant</h3>
+                          <p>Grant was living out his golden years hunting and writing wilderness guides. Now he calls upon those skills to find his family, even though he knows the odds are slim. But the hunt drives Grant forward, staring down the barrel of his rifle.</p>
+                          <h4>CLASS <em>TACTICIAN</em></h4>
+                          <h4>PRIMARY <em>SILENCED SNIPER RIFLE</em></h4>
+                          <h4>SECONDARY <em>REVOLVER</em></h4>
+                          <h4>MELEE <em>STAFF</em></h4>
+                      </div>
+                      </li>
+                      <li class="Maya">
+                      
+                      <img src="images/FristStroy/maya.png" alt="Maya">
+                      <div class="character_summary">
+                         <h3>Maya</h3>
+                          <p>Maya is a former surgeon, well versed in life or death decisions. Now she finds herself under similar pressure, but with far grimmer consequences. She’s the group's medic, equally adept at taking lives and saving them.</p>
+                          <h4>CLASS <em>SUPPORT</em></h4>
+                          <h4>PRIMARY <em>SILENCED SMG</em></h4>
+                          <h4>SECONDARY <em>REVOLVER</em></h4>
+                          <h4>MELEE <em>MACHETE</em></h4>
+                      </div>
+                      </li>
+                      <li class="Heather">
+                      
+                      <img src="images/FristStroy/heather.png" alt="Heather">
+                      <div class="character_summary">
+                         <h3>Heather</h3>
+                          <p>A former kindergarten teacher, Heather knows the difference between right and wrong, but now finds herself blurring the line. She still tries to find the good in all people, but has learned when to stop looking and start fighting.</p>
+                          <h4>CLASS <em>SCOUT</em></h4>
+                          <h4>PRIMARY <em>CROSSBOW</em></h4>
+                          <h4>SECONDARY <em>SILENCED PISTOL</em></h4>
+                          <h4>MELEE <em>PICKAXE</em></h4>
+                      </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="character_img"></div>
+               <video autoplay="autoplay" loop="loop" muted class="videotag">
+                <source type="video/mp4" src="images/FristStroy/FirstStory_video.mp4">
+                </video>
+           </div>
+            
+        </div>
+        <div class="section s2"><div class="Content con2">
+         <ul class="weapons">
+             <li>AR</li>
+             <li>SR</li>
+             <li>DMR</li>
+             <li>SG</li>
+             <li>SMG</li>
+             <li>MELEE</li>
+         </ul>
+         <ul class="weapons_list">
+             <li>
+                   <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_1.png" alt="weapons">
+                          <h3>AK-47</h3>
+                          <span>7.62mm/30(max40)</span>
+                          <p>A modernized version of the beloved classic. when you absoultely. positively. got to kill everyone in the room, accept no subsititutes.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_2.png" alt="weapons">
+                          <h3>AUG A3</h3>
+                          <span>5.56mm/30(max40)</span>
+                          <p>Also known as Steyr AUG, the AUG A3 is the third version of the original AUG A1, which was designed in austria in the 1960's.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_3.png" alt="weapons">
+                          <h3>G36C</h3>
+                          <span>5.56mm/30(max40)</span>
+                          <p>Variant of the G36 rifle made in Germany. The C stands for 'compact'.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_4.png" alt="weapons">
+                          <h3>Groza</h3>
+                          <span>7.62mm/30(max40)</span>
+                          <p>Meening Thunderstorm in Russian, the Groza was developed in the 1990's Russia. Bring the thunder!</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_5.png" alt="weapons">
+                          <h3>M16A4</h3>
+                          <span>5.56mm/30(max40)</span>
+                          <p>Used by the US army during the Vietnam War, the M16A4 is now mostly used for training purposes.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_6.png" alt="weapons">
+                          <h3>M416</h3>
+                          <span>5.56mm/30(max40)</span>
+                          <p>An improvement of the M16 and the M4 Carbine, M416 is used in the US armed forces.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_7.png" alt="weapons">
+                          <h3>Beryl M762</h3>
+                          <span>7.62mm/30(max40)</span>
+                          <p>Made in Poland, the Beryl was made as an alternative to the AKM</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_8.png" alt="weapons">
+                          <h3>MK47 Mutant</h3>
+                          <span>7.62mm/30(max40)</span>
+                          <p>A reliable, US manufactured Semi-automatice rifle or a monster waiting to be usleashed?</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_9.png" alt="weapons">
+                          <h3>QBZ95</h3>
+                          <span>5.56mm/30(max40)</span>
+                          <p>Bullpup-style assault rifle made in the People's Republic of China</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w1/w1_10.png" alt="weapons">
+                          <h3>Scar-L</h3>
+                          <span>5.56mm/30(max40)</span>
+                          <p>Part of the Belgian FN SCAR family, the L here stands for 'light'. The SCAR stands for the pain you leave your enemies with.</p>
+                        </div>
+                  
+                                   
+                    </div>               
+                </div>
+            </li>
+            <li>
+                   <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w2/w2_1.png" alt="weapons">
+                          <h3>AWN</h3>
+                          <span>.300 magnum/5(max7)</span>
+                          <p>Short for Arctic Warfare Magnum, the AWM was made in the UK and provides stable sniping conditions, even in extremely cold weather.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w2/w2_2.png" alt="weapons">
+                          <h3>Kar98k</h3>
+                          <span>7.62mm/5(no max)</span>
+                          <p>First used in Germany in 1935, the Kar98k is still being used in some regions today.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w2/w2_3.png" alt="weapons">
+                          <h3>M24</h3>
+                          <span>7.62mm/5(max7)</span>
+                          <p>The M24 is the standard sniper rifle of the US Army.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w2/w2_4.png" alt="weapons">
+                          <h3>Win94</h3>
+                          <span>.45ACP/8(no max)</span>
+                          <p>This classic lever-action rifle originated in the US in 1894's</p>
+                        </div>    
+                    </div>               
+                </div>
+            </li>
+            <li>
+                   <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w3/w3_1.png" alt="weapons">
+                          <h3>Mini14</h3>
+                          <span>5.56mm/20(max30)</span>
+                          <p>A lightweight, semi-automatic rifle made in the US. Small in name, big in damage.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w3/w3_2.png" alt="weapons">
+                          <h3>MK14</h3>
+                          <span>7.62mm/10(max20)</span>
+                          <p>The standard designated marksman rifle of the US army, The MK14 selective fire option gives versatility in both close range and mid-to-long range combat.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w3/w3_3.png" alt="weapons">
+                          <h3>QBU</h3>
+                          <span>5.56mm/10(max20)</span>
+                          <p>A bullpup-style semi-automatic rifle made in the People's Republic of China</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w3/w3_4.png" alt="weapons">
+                          <h3>SKS</h3>
+                          <span>7.62mm/10(max20)</span>
+                          <p>A Soviet semi-automatic carbine developed in 1945's</p>
+                        </div> 
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w3/w3_5.png" alt="weapons">
+                          <h3>SLR</h3>
+                          <span>7.62mm/10(max20)</span>
+                          <p>The SLR, or Self-Lading Rifle, is a British variation of FN FAL.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w3/w3_6.png" alt="weapons">
+                          <h3>VSS</h3>
+                          <span>9mm/10(max20)</span>
+                          <p>A unique sniper rifle born in the Soviet Union. comes with an integrated suppressor.</p>
+                        </div>   
+                    </div>               
+                </div>
+            </li>
+            <li>
+                   <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w4/w4_1.png" alt="weapons">
+                          <h3>S12K</h3>
+                          <span>12Gauge/5(max8)</span>
+                          <p>A modern Rusiian semi-automatic shotgun.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w4/w4_2.png" alt="weapons">
+                          <h3>S1897</h3>
+                          <span>12Gauge/5(no max)</span>
+                          <p>A classic pump-action shotgun made in the US in the 1890's</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w4/w4_3.png" alt="weapons">
+                          <h3>S686</h3>
+                          <span>12Gauge/2(no max)</span>
+                          <p>A double-barreled shotgun often used for sport in the US.</p>
+                        </div> 
+                    </div>               
+                </div>
+            </li>
+            <li>
+                   <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w5/w5_1.png" alt="weapons">
+                          <h3>Micro UZI</h3>
+                          <span>9mm/25(max35)</span>
+                          <p>Originating in Isreal in 1954's, the Micro Uzi specializes in close quarters combat.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w5/w5_2.png" alt="weapons">
+                          <h3>Tommy Gun</h3>
+                          <span>.45ACP/30(max50)</span>
+                          <p>A nickname given to the Thompson Submachine Gun, developed and used in the US for decades.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w5/w5_3.png" alt="weapons">
+                          <h3>Vector</h3>
+                          <span>9mm/19(max33)</span>
+                          <p>A more modern weapon, the vector was initially released in the US in 2006's</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w5/w5_4.png" alt="weapons">
+                          <h3>UMP45</h3>
+                          <span>.45ACP/25(max32)</span>
+                          <p>UMP stands for Universale Maschinenpistole, meaning Universal Submachine Gun in German.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w5/w5_5.png" alt="weapons">
+                          <h3>PP-19 Bizon</h3>
+                          <span>9mm/53(no max)</span>
+                          <p>The Bizon made it's debut in 1996 in Russia.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w5/w5_6.png" alt="weapons">
+                          <h3>MP5K</h3>
+                          <span>9mm/30(max40)</span>
+                          <p>Variant of the MP5 family, the German made submachine gun is specially designed for close quarters combat. The K stands for 'Kurz',which is means 'short' in German.</p>
+                        </div> 
+                    </div>               
+                </div>
+            </li>
+            <li>
+                   <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w6/w6_1.png" alt="weapons">
+                          <h3>Sickle</h3>                          
+                          <p>A bladed, handheld harvesting tool, the sickle is wicked and functional.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w6/w6_2.png" alt="weapons">
+                          <h3>Pan</h3>                          
+                          <p>The cast iron pan is right at home in the kitchen or saving your backside on the battlegrounds.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w6/w6_3.png" alt="weapons">
+                          <h3>Crowbar</h3>                          
+                          <p>While generally used to pry open doors, the Crowbar can also be used to pry open skulls.</p>
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="images/FristStroy/weapon/w6/w6_4.png" alt="weapons">
+                          <h3>Machete</h3>
+                          <p>A tool often utilized in jungles to clear heavy growth, the machete can also make a brutal and deadly weapon.</p>
+                        </div> 
+                    </div>               
+                </div>
+            </li>
+         </ul>
+         
+         
+          
+            </div></div>
+            
+            
+        <div class="section s3"><div class="Content con3">
+                      <div class="map_listBox">
+                         <h2>ROAD MAP</h2>
+                          <ul class="map_list">
+                              <li>City</li>
+                              <li>Desert</li>
+                              <li>Airport</li>
+                              <li>Country</li>
+                          </ul>
+                          <ul class="map_txt">
+                              <li>StayAlive's original map, Erangel is an 8x8 island whose terrain ranges from open grasslands to tall mountains, with cities and towns mixed in-between. Two bridges connect the larger portion of the island to Erangel's Military Base, making for a dangerous route to and from the small island.</li>
+                              <li>Desert is the traditional 8x8 map size with more of a desert theme. By sheer land mass, it is the biggest map in StayAlive with the vast majority of the space being filled by land and a couple of small cities. It's rough terrain means off-road driving is more difficult and the lack of trees make for a sniper's haven.</li>
+                              <li>StayAlive's smallest map, Sanhok, is a dense island full of trees and hills. Rivers split the island into 3 major sections, so players will have to assess the risks of crossing through water or over one of the island's many bridges. Sanhok's size and available loot lead to a much more hectic and fast-paced battle than traditional StayAlive maps.</li>
+                              <li>The snow-covered fields of Vikendi bring a unique new feel to StayAlive in this 6x6 map. With frozen bodies of water, special vehicles to traverse the snowy landscapes, and footprints to track your enemies, Vikendi is an entirely different way to experience thrilling StayAlive gameplay.</li>
+                          </ul>
+                      </div>
+                       
+               <div class="map_pin">
+            <ul class="map_pin_list">
+                <li>
+                <div class="pin1_1"><p>CITY</p><i class="fas fa-map-pin"></i><div class="line"></div></div>
+                <div class="pin1_2 Pinhide"><i class="fas fa-car"></i></div>
+                <div class="pin1_3 Pinhide"><i class="fas fa-utensils"></i></div>
+                <div class="pin1_4 Pinhide"><i class="fas fa-ambulance"></i></div>
+                <div class="pin1_5 Pinhide"><i class="fas fa-home"></i></div>
+                </li>
+                <li>
+                <div class="pin2_1"><p>Desert</p><i class="fas fa-map-pin"></i><div class="line"></div></div>
+                <div class="pin2_2 Pinhide"><i class="fas fa-car"></i></div>
+                <div class="pin2_3 Pinhide"><i class="fas fa-utensils"></i></div>
+                <div class="pin2_4 Pinhide"><i class="fas fa-ambulance"></i></div>
+                <div class="pin2_5 Pinhide"><i class="fas fa-home"></i></div>                
+                </li>
+                <li>
+                <div class="pin3_1"><p>Airport</p><i class="fas fa-map-pin"></i><div class="line"></div></div>
+                <div class="pin3_2 Pinhide"><i class="fas fa-car"></i></div>
+                <div class="pin3_3 Pinhide"><i class="fas fa-utensils"></i></div>
+                <div class="pin3_4 Pinhide"><i class="fas fa-ambulance"></i></div>
+                <div class="pin3_5 Pinhide"><i class="fas fa-home"></i></div>
+                </li>
+                <li>
+                <div class="pin4_1"><p>Country</p><i class="fas fa-map-pin"></i><div class="line"></div></div>
+                <div class="pin4_2 Pinhide"><i class="fas fa-car"></i></div>
+                <div class="pin4_3 Pinhide"><i class="fas fa-utensils"></i></div>
+                <div class="pin4_4 Pinhide"><i class="fas fa-ambulance"></i></div>
+                <div class="pin4_5 Pinhide"><i class="fas fa-home"></i></div>
+                </li>
+                
+            </ul></div>  
+            </div></div>     
+        <div class="section s7"><div class="Content con7">
+            <div class="con7_txt">
+            <div class="con7_join">
+                <h3>JOIN THE STAY ALVIE COMMUNITY</h3>
+                <ul>
+                    <li><i class="fab fa-youtube"></i></li>
+                    <li><i class="fab fa-twitch"></i></li>
+                    <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-facebook-square"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
+                    <li><i class="fab fa-discord"></i></li>
+                </ul>
+                <input type="text" placeholder="Your EMAIL">
+                <a href="login">JOIN TO STAY ALVIE</a>
+                <p>귀하는 JHSTDUIO Interactive Inc. 및 그 계열사가 개인 정보 보호 정책 및 이용 약관 에 따라 귀하가 동의하기로 한 STAY ALIVE에 대한 정보를 제공하기 위해이 양식으로 제공 한 개인 데이터를 수집, 사용 및 공개 할 수 있음에 동의합니다.</p>
+            </div>
+            </div>
+            <footer>
+            <ul class="footer_list">
+                <li><i class="fab fa-playstation"></i><span>PS4</span></li>
+                <li><i class="fab fa-xbox"></i><span>XBOX ONE</span></li>
+                <li><i class="fab fa-steam"></i><span>STEAM</span></li>
+                <li><i class="fab fa-windows"></i><span>Window 10</span></li>
+                <li><i class="fab fa-google-play"></i><span>Google Play</span></li>
+            </ul>
+            <p>PlayStation family logo mark"PlayStation" andPlayStation 4 logoare registered trademarks or trademarks of Sony Interactive Entertainment Inc.
+            ©JHSTUDIO Corporation. Steam and the Steam logo are trademarks and/or registered trademarks of JHSTUDIO Corporation in the KOR. and/or other countries</p>
+            <h3><img src="images/logo.png" alt="main_logo" class="footer_logo"></h3>
+            <address>COPYRIGHT © 2019 RED BARRELS INC. ALL RIGHTS RESERVED.</address>
+            
+            </footer>
+            </div></div>
+    </div>
+    
+    <ul class="Pos_menu">
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+
+       </ul>
+       
+</body>
+<script src="js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+     
+    });
+        
+
+    </script>
+</html>
