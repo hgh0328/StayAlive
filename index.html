@@ -123,7 +123,7 @@
         .BuyNow a{background: #a5060a; border-top: 2px solid inset #a5060a; border-bottom: 2px solid inset #a5060a;}
         .BuyNow a:hover{color: #251e1e;}
         
-        .section{ width:100%; height:100vh; position:relative; color:#ffffff; font-size:24pt;}
+        .section{ width:100%; height:100vh; position:relative; color:#ffffff; font-size:24pt; overflow: hidden;}
         .Content{position: relative;width: 100%; height: 100vh; overflow: hidden;}
         .con2{top: 100px; height: 91vh;}
         .con4{top: 100px; height: 91vh;}
@@ -345,41 +345,49 @@
             footer .footer_logo{width: 10%; height: 10vh;}
         }
         @media screen and (max-width:1000px) and (min-width:300px){
-            header ul{width: 100%; left: 0%;}
+            header ul{width: 100%; left: 0%; background: #000}
             header ul li a{font-size: 14px; width: 50%; line-height: 50px;}
-            .logo{width: 80%; height: 15vh; margin-top: 150px;}
-            .mainTitle h4{width: 60%; font-size: 24px;}
+            .logo{width: 80%; height: 15vh; margin-top: 0px; top: 150px;}
+            .mainTitle h4{width: 60%; font-size: 22px;}
+            .mainTitle p{margin-top: 0px;}
             .years>div{margin: 0; margin-left: 5%; width: 80%;}
+            .years>div>ul>li>a>h3{font-size: 20px;padding-left: 10px;}
+            .years>div>ul>li>a>p{font-size: 10px; padding-left: 15px;}
+            .years>div>div>a{font-size: 16px; text-align: left;}
             .con2_Limg{background: url(images/con2_bg2.jpg)45% no-repeat; background-size: cover;}
             .con2_Rimg{background: url(images/con2_bg1.jpg)55% no-repeat; background-size: cover;}
             .con2>article{top: 10%;}
-            .con2>article .con2_txt{width: 80%; margin-top: 250px;}
+            .con2>article h3{font-size: 30px;}
+            .con2>article .con2_txt{width: 90%; margin-top: 140px; font-size: 16px;}
             .con3 h3{top: 150px;}
-            .Con3_Box{top: 180px; height:86vh;}
+            .Con3_Box{top: 230px; height:86vh;}
             .Con3_Box h4{line-height: 60px;}
             .Con3_Box p{display: none;}
             .Con3_Box>div{width: 100%; height: auto; overflow: hidden;}
-            .Con3_txt1 p{display:block;}
-            .Con3_txt2 p{display:block;}
-            .Con3_txt3 p{display:block;}
-            .Con4_img1{width: 100%;}
-            .Con4_img2{width: 100%;}
-            .Con4_img3{display: none;}
+            .Con3_txt1 p{display:none;}
+            .Con3_txt2 p{display:none;}
+            .Con3_txt3 p{display:none;}
+            .con4{top: 0px; height: 100vh;}
+            .Con4_img1{width: 100%; height: 33.33%; background-position: bottom;}
+            .Con4_img2{width: 100%; height: 33.33%; background-position: bottom;}
+            .Con4_img3{width: 100%; height: 33.33%; background-position: bottom;}
             .Con4_img4{display: none;}
             .Con4_img5{display: none;}
-            .Con5_imgBox{width: 400px;}
-            .con5{top: 60px;}
-            .con5>h3{opacity: 0;}
-            .con5 h3{top: 50px; margin-top: 0; margin-bottom: 0;}
+            .con5{padding-top: 110px; height: 100vh; background: rgba(0,0,0,0.7); top: 0;}
+            .Con5_imgBox{width: 400px; display: none;}
+            .con5 h5{text-align: left; text-indent: 16px; font-size: 18px; line-height: 18px; height: 18px; margin-top: 20px;}
+            .con5>h3{display: none;}
+            .con5 h3{margin-top: 0; margin-bottom: 0;}
             .con5>div{margin-top: 0px; float: none;}
-            .Con5_imgBox{width: 500px;}
-            .Con5_txt{width: 500px; height: 190px;}
+            .Con5_txt{width: 100%; height: 100%;}
             .con5 p{font-size: 20px;}
             .Con5_console{width: 500px;margin: 0 auto; margin-top: 50px;}
             .Con5_pc{width: 500px; margin: 0; margin: 0 auto; margin-top: 50px;}
-            .Con5_moblie{display: none;}
+            .Con5_moblie{width: 500px; margin: 0; margin: 0 auto; margin-top: 50px;}
+            .con6{top: 0px; height: 100vh;}
             .con6>h3{margin-top: 50px; margin-bottom: 0; display: none;}
-            .con6 video{width: 300%; left: 0; height: 90vh; transform: rotate(90deg); left: -100%;}
+            .con6 video{width: 300%; left: 0; height: 100vh; transform: rotate(90deg); left: -100%;}
+            .con7_join{height: 11vh;}
             .con7_join ul{width: 80%;}
             .con7_join p{width: 80%;}
             .con7_join input{width: 75%;}
