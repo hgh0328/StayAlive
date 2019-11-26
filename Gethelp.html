@@ -102,6 +102,79 @@
                     
                 });
             });
+            $(".con2 .icon_list li").click(function(){
+                var i = $(this).index();
+                $(".Help_list li ul li").css({"opacity":"1"});
+                $(".icon_list li").removeClass("on");
+                $(".con2 .icon_list li").eq(i).addClass("on");
+                if(i == 0){
+                    $(".con2 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con2 .chosse1").css({"opacity":"1"});                    
+                }
+                else if(i == 1){
+                    $(".con2 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con2 .chosse2").css({"opacity":"1"});                    
+                }
+                else if(i == 2){
+                    $(".con2 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con2 .chosse3").css({"opacity":"1"});                    
+                }
+                else if(i == 3){
+                    $(".con2 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con2 .chosse4").css({"opacity":"1"});                    
+                };
+            });
+            $(".con3 .icon_list li").click(function(){
+                var i = $(this).index();
+                $(".Help_list li ul li").css({"opacity":"1"});
+                $(".icon_list li").removeClass("on");
+                $(".con3 .icon_list li").eq(i).addClass("on");
+                if(i == 0){
+                    $(".con3 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con3 .chosse1").css({"opacity":"1"});                    
+                }
+                else if(i == 1){
+                    $(".con3 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con3 .chosse2").css({"opacity":"1"});                    
+                }
+                else if(i == 2){
+                    $(".con3 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con3 .chosse3").css({"opacity":"1"});                    
+                }
+                else if(i == 3){
+                    $(".con3 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con3 .chosse4").css({"opacity":"1"});                    
+                };
+            });
+            $(".con4 .icon_list li").click(function(){
+                 var i = $(this).index();
+                $(".Help_list li ul li").css({"opacity":"1"});
+                $(".icon_list li").removeClass("on");
+                $(".con4 .icon_list li").eq(i).addClass("on");
+                if(i == 0){
+                    $(".con4 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con4 .chosse1").css({"opacity":"1"});                    
+                }
+                else if(i == 1){
+                    $(".con4 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con4 .chosse2").css({"opacity":"1"});                    
+                }
+                else if(i == 2){
+                    $(".con4 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con4 .chosse3").css({"opacity":"1"});                    
+                }
+                else if(i == 3){
+                    $(".con4 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con4 .chosse4").css({"opacity":"1"});                    
+                };
+            });
+            
+            $(".Plotform li").click(function(){
+                var ch = $(this).index()+1;
+                var po = $("#wrap > .section").eq(ch).offset().top;
+                 $("html,body").stop().animate({scrollTop: po},1500);
+                
+            });
             
             
         });
@@ -127,7 +200,7 @@
         .BuyNow a:hover{color: #251e1e;}
         
         
-        .section{ width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
+        .section{width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
         .Content{position: relative; width: 100%; height: 100%;}
        
         
@@ -138,11 +211,14 @@
         .Pos_menu li i.on{color: #a5060a; font-size: 36px;}
         
         .s1{background: url(images/GetHelp/bg_1.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
-        .s2{background: url(images/FristStroy/FS_bg1.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
-        .s3{background: url(images/FristStroy/map.jpg) no-repeat; background-size: cover; background-attachment: fixed; background-position: center center;}
+        .s2{background: url(images/GetHelp/GH_bg1.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
+        .s3{background: url(images/GetHelp/GH_bg2.jpg) no-repeat; background-size: cover; background-attachment: fixed; background-position: center center;}
+        .s4{background: url(images/GetHelp/GH_bg3.jpg) no-repeat; background-size: cover; background-attachment: fixed; background-position: center center;}
         .s7{background: url(images/bg_7.jpg)  no-repeat; background-size: cover;}
         
-        .con2{height: 100%; background: rgba(0,0,0,0.3); padding-top: 100px;}
+        .con2{background: rgba(0,0,0,0.7)}
+        .con3{background: rgba(0,0,0,0.7)}
+        .con4{background: rgba(0,0,0,0.7)}
         
         /*click*/
         .here a{color: goldenrod;  border-bottom: 2px solid goldenrod; font-weight: bold;}
@@ -182,15 +258,51 @@
         .con1 h2{position: relative; text-align: center; top: 150px; font-size: 35px;}
         .Plotform{position: relative; top: 200px; width: 80%; margin: 0 auto;}
         .Plotform:after{content: ''; display: block; clear: both;}
-        .Plotform h3{display: block; background: red; width: 450px; margin: 0 auto; line-height: 50px; font-size: 25px;}
-        .Plotform li{float: left; width: 500px; text-align: center;}
-        .imgbox{overflow: hidden; height: 600px; width: 450px; overflow: hidden; position: relative; margin: 0 auto;}
-        .imgCon{width: 450px; margin: 0 auto; height: 600px;}
-        .imgCon:hover{transform: scale(1.1); transition: 0.5s;}
+        .Plotform h3{display: block; width: 90%; margin: 0 auto; line-height: 50px; font-size: 25px;}
+        .Plotform .Console{background: seagreen;}
+        .Plotform .Pc{background: steelblue;}
+        .Plotform .Mobile{background: goldenrod;}
+        .Plotform li{float: left; width: 33.33%; text-align: center;}
+        .imgbox{overflow: hidden; height: 600px; width: 90%; overflow: hidden; position: relative; margin: 0 auto;}
+        .imgCon{width: 460px; margin: 0 auto; height: 600px; transition: 0.5s; cursor: pointer;}
+        .imgCon:hover{transform: scale(1.1);}
         .logoimg{position: absolute; width: 30%; z-index: 99; left: 50%; transform: translateX(-50%); top: 500px;}
         .Ci1{background: url(images/GetHelp/console_con.jpg)50% 100% no-repeat; background-size: cover;}
         .Ci2{background: url(images/GetHelp/pc_con.jpg)40% 100% no-repeat; background-size: cover;}
         .Ci3{background: url(images/GetHelp/moblie_con.jpg)45% 100% no-repeat; background-size: cover;}
+        
+        /*GetHelp*/
+        .icon_box{position: relative; width: 100%; top: 200px;}
+        .icon_list{position: relative;}
+        .icon_list li{float: left; width: 25%; text-align: center;}
+        .icon_list:after{content: ''; display: block; clear: both;}
+        .icon_list i{font-size: 50px; transition: 0.3s;}
+        .icon_list h4{font-size: 24px; line-height: 100px; letter-spacing: 1px; transition: 0.3s;}
+        .con2 .icon_list li:hover i{color: seagreen;}
+        .con2 .icon_list li:hover h4{color: seagreen;}
+        .con3 .icon_list li:hover i{color: steelblue;}
+        .con3 .icon_list li:hover h4{color: steelblue;}
+        .con4 .icon_list li:hover i{color: goldenrod;}
+        .con4 .icon_list li:hover h4{color: goldenrod;}
+        .con2 .Help_txt h3{color: seagreen;}
+        .con3 .Help_txt h3{color: steelblue;}
+        .con4 .Help_txt h3{color: goldenrod;}
+        .Help_txt{position: relative; width: 100%; top: 20px; text-align: center;}
+        .Help_txt h3{font-size: 55px; line-height: 80px; border-bottom: 10px solid rgba(255,255,255,0.6); width: 85%; margin: 0 auto;}
+        .Help_list{margin-top: 30px;}
+        .Help_list>li{float: left; width: 50%; text-align: left;}
+        .Help_list::after{content: ''; display: block; clear: both;}
+        .Help_list h5{font-size: 28px; padding-top: 10px; line-height: 36px; text-indent: 150px;}
+        .Help_list p{font-size: 22px; padding-top: 10px; text-indent: 150px; letter-spacing: 1px;}
+        .Help_list li ul li{transition: 0.3s;}
+        
+        .con2 .Help_list h5{color: seagreen;}
+        .con3 .Help_list h5{color: steelblue;}
+        .con4 .Help_list h5{color: goldenrod;}
+        .con2 .icon_list li.on{color: seagreen;}
+        .con3 .icon_list li.on{color: steelblue;}
+        .con4 .icon_list li.on{color: goldenrod;}
+        
     </style>
     <style>
     /*미디어쿼리*/
@@ -205,6 +317,15 @@
             footer p{width: 80%; letter-spacing: 1px;}
             footer .footer_logo{width: 10%; height: 10%;}
             
+            /*CHosee*/
+            .con1 h2{top: 200px;}
+            .Plotform{top: 300px;}
+            .logoimg{width: 50%;}
+            
+            /*Gethelp*/
+            .Help_txt h3{font-size: 38px; border-bottom: 5px solid rgba(255,255,255,0.6); width: 100%;}
+            .Help_list h5{font-size: 22px; text-indent: 0px; padding-left: 10px;}
+            .Help_list p{font-size: 22px; padding-top: 5px; text-indent: 0px; letter-spacing: 1px; padding-left: 10px;}
             
         }
         @media screen and (max-width:1000px) and (min-width:300px){
@@ -221,6 +342,17 @@
             footer p{width: 80%; letter-spacing: 1px;}
             footer .footer_logo{width: 15%; height: 10%;}
             
+            /*CHosee*/
+            .con1 h2{top: 200px;}
+            .Plotform{top: 300px;}
+            .logoimg{width: 90%;}
+            
+            /*Gethelp*/
+            .icon_list h4{display: none;}
+            .Help_txt h3{font-size: 38px; border-bottom: 2px solid rgba(255,255,255,0.6); width: 100%;}
+            .Help_list h5{font-size: 20px; text-indent: 0px; padding-left: 10px;}
+            .Help_list p{font-size: 17px; padding-top: 5px; text-indent: 0px; letter-spacing: 1px; padding-left: 10px;}
+            
             
             
         }
@@ -235,7 +367,7 @@
            <li><a href="FirstStory.html">FIRST STORY</a></li>
            <li><a href="OfficalForum.html">OFFICAL FORUM</a></li>
            <li class="here"><a href="Gethelp.html">GET HELP</a></li>
-           <li class="BuyNow"><a href="#">BUY NOW</a></li>
+           <li class="BuyNow"><a href="BuyNow.html">BUY NOW</a></li>
        </ul>
        </header>
     <div id="wrap">
@@ -243,26 +375,175 @@
            <div class="Content con1">
               <h2>CHOSSE YOUR PLOTFORM</h2>
               <ul class="Plotform">
-                  <li><h3>CONSOLE</h3>
+                  <li><h3 class="Console">CONSOLE</h3>
                   <div class="imgbox"><div class="imgCon Ci1"></div>
                   <img src="images/logo.png" alt="logo" class="logoimg"></div></li>
-                  <li><h3>PC</h3>
+                  <li><h3 class="Pc">PC</h3>
                   <div class="imgbox"><div class="imgCon Ci2"></div>
                   <img src="images/logo.png" alt="logo" class="logoimg"></div></li>
-                  <li><h3>MOBILE</h3>
+                  <li><h3 class="Mobile">MOBILE</h3>
                   <div class="imgbox"><div class="imgCon Ci3"></div>
                   <img src="images/logo.png" alt="logo" class="logoimg"></div></li>
               </ul>
            </div></div>
            
         <div class="section s2"><div class="Content con2">
-         
+        <div class="icon_box">
+            <ul class="icon_list">
+                <li><i class="fas fa-gamepad"></i>
+                <h4>GAMEPLAY RELATED</h4></li>
+                <li><i class="fas fa-shield-alt"></i>
+                <h4>ACCOUNT MANAGEMENT</h4></li>
+                <li><i class="fas fa-bug"></i>
+                <h4>REPORTS &amp; RESTRICTIONS</h4></li>
+                <li><i class="fas fa-shopping-cart"></i>
+                <h4>PURCHASES</h4></li>
+            </ul>
+        <div class="Help_txt">
+            <h3>Promoted Articles</h3>
+            <ul class="Help_list">
+                <li>
+                    <ul>
+                    <li class="chosse1"><h5>What is Cross Platform Play?</h5>
+                    <p>We’re kicking off Update 4.3 for consoles with a bang! Cross-Platform Play is...</p></li>
+                    <li class="chosse4"><h5>I purchased Survivor Pass 3: Wild Card, but don't have access to it.</h5>
+                    <p>Once you have made the purchase to the Survivor Pass 3: Wild Card, please go ...</p></li>
+                    <li class="chosse1"><h5>Where can I find my purchased DLC?</h5>
+                    <p>All DLC including Season &amp; Premium Passes, skins and etc. can be found under:...</p></li>
+                    <li class="chosse2"><h5>[PTS] How do I download the PTS?</h5>
+                    <p>There is an issue where the PTS isn't accessible on the Xbox Store.  Until we...</p></li>
+                    <li class="chosse3"><h5>What kind of data does PUBG collect?</h5>
+                    <p>We collect the following kinds of data. For more details, please read our pri...</p></li>
+                    <li class="chosse2"><h5>My win/kill stats are decreasing.</h5>
+                    <p>Please report the issue by using the Xbox insider hub app, this will help us ...</p></li>
+                    
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                    <li class="chosse3"><h5>I can't revive anyone!</h5>
+                    <p>To revive your knocked-out teammate, please follow the steps: 1) Get close to...</p></li>
+                    <li class="chosse2"><h5>Why isn't the leaderboard updating?</h5>
+                    <p>Sometimes, you might notice that there is a difference in your Survival Point...</p></li>
+                    <li class="chosse4"><h5>Missions not updating in Survival rewards.</h5>
+                    <p>1. You must survive more than 2 minutes in a public match, except for the ‘Pl...</p></li>
+                    <li class="chosse1"><h5>My game is crashing or failing to load</h5>
+                    <p>When the game is crashing or failing to load, please provide the following in...</p></li>
+                    <li class="chosse2"><h5>What is GDPR?</h5>
+                    <p>The General Data Protection Regulation (GDPR) is a regulation on data protect...</p></li>
+                    
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+        </div>        
          </div></div>
-            
-            
         <div class="section s3"><div class="Content con3">
-                       
-            </div></div>     
+        <div class="icon_box">
+            <ul class="icon_list">
+                <li><i class="fas fa-crosshairs"></i>
+                <h4>GAMEPLAY RELATED</h4></li>
+                <li><i class="fas fa-user-shield"></i>
+                <h4>ACCOUNT MANAGEMENT</h4></li>
+                <li><i class="fas fa-clipboard-list"></i>
+                <h4>REPORTS &amp; RESTRICTIONS</h4></li>
+                <li><i class="fas fa-shopping-bag"></i>
+                <h4>PURCHASES</h4></li>
+            </ul>
+        <div class="Help_txt">
+            <h3>Promoted Articles</h3>
+            <ul class="Help_list">
+                <li>
+                    <ul>
+                    <li class="chosse3"><h5>What is Cross Platform Play?</h5>
+                    <p>We’re kicking off Update 4.3 for consoles with a bang! Cross-Platform Play is...</p></li>
+                    <li class="chosse1"><h5>I purchased Survivor Pass 3: Wild Card, but don't have access to it.</h5>
+                    <p>Once you have made the purchase to the Survivor Pass 3: Wild Card, please go ...</p></li>
+                    <li class="chosse4"><h5>Where can I find my purchased DLC?</h5>
+                    <p>All DLC including Season &amp; Premium Passes, skins and etc. can be found under:...</p></li>
+                    <li class="chosse2"><h5>[PTS] How do I download the PTS?</h5>
+                    <p>There is an issue where the PTS isn't accessible on the Xbox Store.  Until we...</p></li>
+                    <li class="chosse3"><h5>What kind of data does PUBG collect?</h5>
+                    <p>We collect the following kinds of data. For more details, please read our pri...</p></li>
+                    <li class="chosse2"><h5>My win/kill stats are decreasing.</h5>
+                    <p>Please report the issue by using the Xbox insider hub app, this will help us ...</p></li>
+                    <li class="chosse1"><h5>I haven't received my purchase.</h5>
+                    <p>Help us assist you further, by sharing the below information by submitting a ...</p></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                    <li class="chosse1"><h5>I can't revive anyone!</h5>
+                    <p>To revive your knocked-out teammate, please follow the steps: 1) Get close to...</p></li>
+                    <li class="chosse2"><h5>Why isn't the leaderboard updating?</h5>
+                    <p>Sometimes, you might notice that there is a difference in your Survival Point...</p></li>
+                    <li class="chosse4"><h5>Missions not updating in Survival rewards.</h5>
+                    <p>1. You must survive more than 2 minutes in a public match, except for the ‘Pl...</p></li>
+                    <li class="chosse3"><h5>My game is crashing or failing to load</h5>
+                    <p>When the game is crashing or failing to load, please provide the following in...</p></li>
+                    <li class="chosse4"><h5>What is GDPR?</h5>
+                    <p>The General Data Protection Regulation (GDPR) is a regulation on data protect...</p></li>
+                    <li class="chosse1"><h5>What happens after I report a player for cheating?</h5>
+                    <p>Please know that our Team is always deploying countermeasures to detect and r...</p></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+        </div>               
+        </div></div>
+        <div class="section s4"><div class="Content con4">
+        <div class="icon_box">
+            <ul class="icon_list">
+                <li><i class="fas fa-mobile-alt"></i>
+                <h4>GAMEPLAY RELATED</h4></li>
+                <li><i class="fas fa-fingerprint"></i>
+                <h4>ACCOUNT MANAGEMENT</h4></li>
+                <li><i class="fas fa-file-signature"></i>
+                <h4>REPORTS &amp; RESTRICTIONS</h4></li>
+                <li><i class="fas fa-shopping-basket"></i>
+                <h4>PURCHASES</h4></li>
+            </ul>
+        <div class="Help_txt">
+            <h3>Promoted Articles</h3>
+            <ul class="Help_list">
+                <li>
+                    <ul>
+                    <li class="chosse4"><h5>What is Cross Platform Play?</h5>
+                    <p>We’re kicking off Update 4.3 for consoles with a bang! Cross-Platform Play is...</p></li>
+                    <li class="chosse2"><h5>I purchased Survivor Pass 3: Wild Card, but don't have access to it.</h5>
+                    <p>Once you have made the purchase to the Survivor Pass 3: Wild Card, please go ...</p></li>
+                    <li class="chosse1"><h5>Where can I find my purchased DLC?</h5>
+                    <p>All DLC including Season &amp; Premium Passes, skins and etc. can be found under:...</p></li>
+                    <li class="chosse3"><h5>[PTS] How do I download the PTS?</h5>
+                    <p>There is an issue where the PTS isn't accessible on the Xbox Store.  Until we...</p></li>
+                    <li class="chosse2"><h5>What kind of data does PUBG collect?</h5>
+                    <p>We collect the following kinds of data. For more details, please read our pri...</p></li>
+                    <li class="chosse4"><h5>My win/kill stats are decreasing.</h5>
+                    <p>Please report the issue by using the Xbox insider hub app, this will help us ...</p></li>
+                    <li class="chosse3"><h5>I haven't received my purchase.</h5>
+                    <p>Help us assist you further, by sharing the below information by submitting a ...</p></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                    <li class="chosse2"><h5>I can't revive anyone!</h5>
+                    <p>To revive your knocked-out teammate, please follow the steps: 1) Get close to...</p></li>
+                    <li class="chosse1"><h5>Why isn't the leaderboard updating?</h5>
+                    <p>Sometimes, you might notice that there is a difference in your Survival Point...</p></li>
+                    <li class="chosse4"><h5>Missions not updating in Survival rewards.</h5>
+                    <p>1. You must survive more than 2 minutes in a public match, except for the ‘Pl...</p></li>
+                    <li class="chosse2"><h5>My game is crashing or failing to load</h5>
+                    <p>When the game is crashing or failing to load, please provide the following in...</p></li>
+                    <li class="chosse3"><h5>What is GDPR?</h5>
+                    <p>The General Data Protection Regulation (GDPR) is a regulation on data protect...</p></li>
+                    <li class="chosse1"><h5>What happens after I report a player for cheating?</h5>
+                    <p>Please know that our Team is always deploying countermeasures to detect and r...</p></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+        </div>                        
+        </div></div>      
         <div class="section s7"><div class="Content con7">
             <div class="con7_txt">
             <div class="con7_join">
@@ -298,6 +579,7 @@
     </div>
     
     <ul class="Pos_menu">
+           <li><i class="fab fa-chrome fa-spin"></i></li>
            <li><i class="fab fa-chrome fa-spin"></i></li>
            <li><i class="fab fa-chrome fa-spin"></i></li>
            <li><i class="fab fa-chrome fa-spin"></i></li>

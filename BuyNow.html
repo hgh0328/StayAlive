@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>STAY ALVIE > Login</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">    
+    <link rel="stylesheet" href="css/main.css">  
+    
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript">
+        $(function(){
+            $(".Pos_menu li").click(function(){  
+                     var i = $(".Pos_menu li").index(this);
+                     var s = $(".section").eq(i).offset().top;
+                       $(".Pos_menu li i").removeClass();
+                       $(".Pos_menu li i").addClass("fas fa-skull");
+                       $(".Pos_menu li i").eq(i).removeClass();
+                       $(".Pos_menu li i").eq(i).addClass("fab fa-chrome fa-spin on");
+                       $("html,body").stop().animate({scrollTop:s});
+                 });
+
+            var deflut=0;
+            $(".Pos_menu li i").removeClass();
+            $(".Pos_menu li i").addClass("fas fa-skull");
+            $(".Pos_menu li i").eq(deflut).removeClass();
+            $(".Pos_menu li i").eq(deflut).addClass("fab fa-chrome fa-spin on");
+            $(window).scroll(function(){
+                var scroll = $(window).scrollTop();
+                var ht= $(window).height();
+
+            for(var i=0; i<5; i++){
+                if(scroll >=ht*(i) && scroll < ht*(i+1)){                    
+                    $(".Pos_menu li i").removeClass();
+                    $(".Pos_menu li i").addClass("fas fa-skull");
+                    $(".Pos_menu li i").eq(i).removeClass();
+                    $(".Pos_menu li i").eq(i).addClass("fab fa-chrome fa-spin on");
+                }
+                else if(scroll == 0){
+                    $(".Pos_menu li i").removeClass();
+                    $(".Pos_menu li i").addClass("fas fa-skull");
+                    $(".Pos_menu li i").eq(0).removeClass();
+                    $(".Pos_menu li i").eq(0).addClass("fab fa-chrome fa-spin on");
+                };               
+            }
+            }); 
+            var select = ".section";
+            $(select).each(function (index) {
+                
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveScorll = $(window).scrollTop();
+                    var section = $(select).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(section).next() != undefined) {
+                            try{
+                                moveScorll = $(section).next().offset().top;
+                                $('header').removeClass('head-up').addClass('head-down');
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(section).prev() != undefined) {
+                            try{
+                                moveScorll = $(section).prev().offset().top;
+                                
+                            }catch(e){}
+                        }
+                    }
+                    $(window).scroll(function(){
+                        var windowScroll = $(window).scrollTop();
+                        if(windowScroll == 0){
+                        $('header').removeClass('head-down').addClass('head-up');
+                        };
+                    });
+                     
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveScorll + 'px'
+                    },{duration: 1200, complete: function(){}});
+                    
+                });
+            });
+            $(".con2 .icon_list li").click(function(){
+                var i = $(this).index();
+                $(".Help_list li ul li").css({"opacity":"1"});
+                $(".icon_list li").removeClass("on");
+                $(".con2 .icon_list li").eq(i).addClass("on");
+                if(i == 0){
+                    $(".con2 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con2 .chosse1").css({"opacity":"1"});                    
+                }
+                else if(i == 1){
+                    $(".con2 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con2 .chosse2").css({"opacity":"1"});                    
+                }
+                else if(i == 2){
+                    $(".con2 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con2 .chosse3").css({"opacity":"1"});                    
+                }
+                else if(i == 3){
+                    $(".con2 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con2 .chosse4").css({"opacity":"1"});                    
+                };
+            });
+            $(".con3 .icon_list li").click(function(){
+                var i = $(this).index();
+                $(".Help_list li ul li").css({"opacity":"1"});
+                $(".icon_list li").removeClass("on");
+                $(".con3 .icon_list li").eq(i).addClass("on");
+                if(i == 0){
+                    $(".con3 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con3 .chosse1").css({"opacity":"1"});                    
+                }
+                else if(i == 1){
+                    $(".con3 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con3 .chosse2").css({"opacity":"1"});                    
+                }
+                else if(i == 2){
+                    $(".con3 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con3 .chosse3").css({"opacity":"1"});                    
+                }
+                else if(i == 3){
+                    $(".con3 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con3 .chosse4").css({"opacity":"1"});                    
+                };
+            });
+            $(".con4 .icon_list li").click(function(){
+                 var i = $(this).index();
+                $(".Help_list li ul li").css({"opacity":"1"});
+                $(".icon_list li").removeClass("on");
+                $(".con4 .icon_list li").eq(i).addClass("on");
+                if(i == 0){
+                    $(".con4 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con4 .chosse1").css({"opacity":"1"});                    
+                }
+                else if(i == 1){
+                    $(".con4 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con4 .chosse2").css({"opacity":"1"});                    
+                }
+                else if(i == 2){
+                    $(".con4 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con4 .chosse3").css({"opacity":"1"});                    
+                }
+                else if(i == 3){
+                    $(".con4 .Help_list li ul li").css({"opacity":"0.2"});
+                    $(".con4 .chosse4").css({"opacity":"1"});                    
+                };
+            });
+            
+            $(".Plotform li").click(function(){
+                var ch = $(this).index()+1;
+                var po = $("#wrap > .section").eq(ch).offset().top;
+                 $("html,body").stop().animate({scrollTop: po},1500);
+                
+            });
+            
+            
+        });
+    </script>
+    
+    <style>
+        /*defalut setting*/
+        *{margin: 0; padding: 0;}
+        body::-webkit-scrollbar {display: none;} 
+        html,body{ margin:0; padding:0; width:100%; height:100%; font-family: 'Big Shoulders Text', cursive; color: #f9f9f9;}
+        
+        #wrap {width: 100%; height: 100%;position: relative;}
+        
+        /*header*/
+        header{position: fixed; width: 100%; height: auto; z-index: 99; font-family: 'Kanit', sans-serif;}
+        .head-up{background: rgba(0,0,0,0.1); transition: 0.5s;}
+        .head-down{background: rgba(0,0,0,0.7); transition: 0.5s;}
+        header ul{width: 60%; position: relative; left: 40%;}
+        header ul li a{float: left; width: 20%; line-height: 100px; text-align: center; font-size: 20px; cursor: pointer; letter-spacing: 1px; border-top: 2px solid rgba(0,0,0,0); border-bottom: 2px solid rgba(0,0,0,0);}
+        header ul li a:hover{color: #a5060a; transition: 0.3s; border-top: 2px solid #a5060a; border-bottom: 2px solid #a5060a; font-weight: bold;}
+        header ul:after{content: ''; display: block; clear: both;}
+        .BuyNow a{background: goldenrod; border-top: 2px solid goldenrod; border-bottom: 2px solid goldenrod;}
+        .BuyNow a:hover{color: #251e1e;}
+        
+        
+        .section{width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
+        .Content{position: relative; width: 100%; height: 100%;}
+       
+        
+        .Pos_menu{position: fixed; right: 1%; top: 40%;  text-align: center; z-index: 99999;}
+        .Pos_menu li{width: 30px; height: 30px; margin-top: 30px;}
+        .Pos_menu li i:hover{color: #a5060a; transition: 0.3s;}
+        .Pos_menu li i{color: rgba(255,255,255,0.3); font-size: 20px; display: inline-block;}
+        .Pos_menu li i.on{color: #a5060a; font-size: 36px;}
+        
+        .s1{background: url(images/BuyNow/BN_bg5.jpg)no-repeat; background-size: cover; background-attachment: fixed;}
+        .s7{background: url(images/bg_7.jpg)  no-repeat; background-size: cover;}
+        
+        .con2{background: rgba(0,0,0,0.7)}
+        .con3{background: rgba(0,0,0,0.7)}
+        .con4{background: rgba(0,0,0,0.7)}
+        
+        /*click*/
+        .here a{color: #f9f9f9;  border-bottom: 2px solid #f9f9f9; font-weight: bold;}
+        .fa-house-damage{font-size: 30px; line-height: 90px;}    
+        
+        /*Content7*/
+        .con7_txt{position: relative; width: 100%; height: 80%; text-align: center;}
+        .con7_join{position: absolute; width: 100%; height: 10%; background: rgba(165,6,10,0.6); bottom: 0; transition: 0.5s;}
+        .con7_join:hover{height: 35%; background: rgba(0,0,0,0.8)}
+        .con7_join h3{text-align: center; font-size: 26px; line-height: 100px;}
+        .con7_join ul{width: 50%; margin: 0 auto; text-align: center;}
+        .con7_join ul:after{content: ''; display: block; clear: both;}
+        .con7_join ul li{float: left; width: 16.66%;}
+        .con7_join ul li i{font-size: 30px; transition: 0.3s; cursor: pointer;}
+        .con7_join input{width: 20%; height: 35px; line-height: 35px; margin-top: 30px; font-weight: bold; font-size: 18px; border: none; text-indent: 20px;}
+        .con7_join a{font-size: 18px; background: #a5060a; height: 35px; line-height: 35px; display: inline-block; width: 300px; color: #f9f9f9; font-weight: bold; transition: 0.5s;}
+        .con7_join a:hover{color: #a5060a; background: #3c3c3c;}
+        .con7_join p{width: 25%; font-size: 12px; margin: 0 auto; text-align: left; margin-top: 20px; line-height: 13px;}
+        .fa-youtube:hover{color:#fe0000;}
+        .fa-twitch:hover{color:#6441a5;}
+        .fa-twitter:hover{color:#32cdfd;}
+        .fa-facebook-square:hover{color:#3c5a99;}
+        .fa-instagram:hover{color:#ff7d45;}
+        .fa-discord:hover{color:#7289d9;}
+        .fa-google-plus-square:hover{color: #d14433}
+        .fa-line:hover{color: #00b900 }
+        
+        /*footer*/
+        footer{position: relative; bottom: 0; width: 100%; height: 20%; background: rgba(0,0,0,1);}
+        .footer_list{width: 60%; margin: 0 auto;}
+        .footer_list:after{content: ''; display: block; clear: both;}
+        .footer_list li{float: left; width: 20%; text-align: center; line-height: 50px; font-size: 22px; margin-top: 20px;}
+        .footer_list li i{margin-right: 10px;}
+        footer .footer_logo{width: 5%;  height: 5%; margin: 0 auto; text-align: center; display: block;}
+        footer p{text-align: center; font-size: 12px; width: 50%; margin: 0  auto;}
+        footer address{text-align: center; font-size: 12px; margin-top: 15px;} 
+        
+        /*vfx*/
+        .vfx{width: 100%; height: 100%; position: absolute;}
+        .vfx img{width: 100%; height: 100%; opacity: 0.3;}
+        
+        /*SNS*/
+        .google i{background: #d14433; border: 2px solid #d14433;}
+        .line i{background: #00b900; border: 2px solid #00b900;}
+        .facebook i{background: #3c5a99; border: 2px solid #3c5a99;}
+        .instagram i{background: #ff7d45; border: 2px solid #ff7d45;}
+        
+        .google i:hover{background: none; border: 2px inset #d14433;}
+        .line i:hover{background: none; border: 2px inset #00b900;}
+        .facebook i:hover{background: none; border: 2px inset #3c5a99;}
+        .instagram i:hover{background: none; border: 2px inset #ff7d45;}
+        
+        /*login*/
+        .Login{position: relative; top: 200px; width: 40%; height: 65%; background: rgba(0,0,0,0.34);left: 12%; text-align: center; }
+        .Login h1{text-align: center;}
+        .Login h1 img{width: 50%;}
+        .SNS{width: 60%; margin:  0 auto; height: 70px; margin-top: 15px;}
+        .SNS::after{content: ''; display: block; clear: both;}
+        .SNS li{float: left; width: 25%; }
+        .SNS li i{width: 90%; margin: 0 auto;text-align: center;font-size: 24px;line-height: 60px; transition: 0.2s; cursor: pointer;}
+        input[type = text]{font-size: 20px; width: 60%;height: 40px; margin-top: 30px; background: none; border: none; border-bottom: 2px solid #eee; text-indent: 10px;}    
+        input[type = password]{font-size: 20px; width: 59%; height: 40px; margin-top: 20px; background: none; border: none; border-bottom: 2px solid #eee; text-indent: 10px;}
+        .checkbox{width: 60%; text-align: left; margin: 0 auto;}
+        .checkbox:after{content: ''; display: block; clear: both;}
+        input[type = checkbox]{width: 20px; height: 20px; float: left; margin-top: 20px;}
+        .Login span{font-size: 20px;display: block; float: left; text-indent: 10px; margin-top: 20px;}
+        .loginbtn{width: 60%; background: goldenrod; display: block; margin: 0 auto; margin-top: 30px; font-size: 20px; line-height: 50px; font-family: 'Nanum Gothic', sans-serif;}
+        .joinbtn{width: 60%; border: 1px solid goldenrod; display: block; margin: 0 auto;font-size: 20px; line-height: 50px; font-family: 'Nanum Gothic', sans-serif;}
+    </style>
+    <style>
+    /*미디어쿼리*/
+        @media screen and (max-width:1500px) and (min-width: 1001px){
+            header ul{width: 70%; left: 30%;}
+            header ul li a{font-size: 16px;}
+            .con7_join ul{width: 80%;}
+            .con7_join p{width: 80%;}
+            .con7_join input{width: 75%;}
+            .con7_join a{width: 75%;}
+            .footer_list span{display: none;}
+            footer p{width: 80%; letter-spacing: 1px;}
+            footer .footer_logo{width: 10%; height: 10%;}
+           
+            
+        }
+        @media screen and (max-width:1000px) and (min-width:300px){
+             header ul{width: 100%; left: 0%; }
+             header ul li{width: 100%;}
+             header ul li a{font-size: 16px; width: 50%; line-height: 50px;}
+            .BuyNow a{width: 100%;}
+            .fa-house-damage{font-size: 16px; line-height: 50px;}            
+            .con7_join ul{width: 80%;}
+            .con7_join p{width: 80%;}
+            .con7_join input{width: 75%;}
+            .con7_join a{width: 75%;}
+            .footer_list span{display: none;}
+            footer p{width: 80%; letter-spacing: 1px;}
+            footer .footer_logo{width: 15%; height: 10%;}
+           
+        }
+        
+    </style>
+    
+</head>
+<body>
+       <header class="head-up">
+       <ul>
+           <li><a href="index.html"><i class="fas fa-house-damage"></i></a></li>
+           <li><a href="FirstStory.html">FIRST STORY</a></li>
+           <li><a href="OfficalForum.html">OFFICAL FORUM</a></li>
+           <li><a href="Gethelp.html">GET HELP</a></li>
+           <li class="BuyNow here"><a href="BuyNow.html">BUY NOW</a></li>
+       </ul>
+       </header>
+    <div id="wrap">
+        <div class="section s1">
+           <div class="Content con1">
+            <div class="vfx"><img src="images/BuyNow/vfx/vfx2.gif" alt="vfx"></div>
+             <div class="Login">
+                 <h1><a href="index.html"><img src="images/logo.png" alt="logo"></a></h1>
+                 <ul class="SNS">
+                     <li class="google"><i class="fab fa-google-plus-square"></i></li>
+                     <li class="line"><i class="fab fa-line"></i></li>
+                    <li class="facebook"><i class="fab fa-facebook-square"></i></li>
+                    <li class="instagram"><i class="fab fa-instagram"></i></li>
+                 </ul>
+                 <input type="text" class="email" placeholder="이메일 주소"><br>
+                 <input type="password" class="email" placeholder="비밀번호"><br>
+                 <div class="checkbox">
+                     <input type="checkbox"><span>Remember Email</span><br>
+                 </div>
+                 <a href="index.html" class="loginbtn">로그인</a><br>
+                 <a href="" class="joinbtn">내 계정 만들기</a>
+             </div>
+           </div></div>
+       
+        <div class="section s7"><div class="Content con7">
+            <div class="con7_txt">
+            <div class="con7_join">
+                <h3>JOIN THE STAY ALVIE COMMUNITY</h3>
+                <ul>
+                    <li><i class="fab fa-youtube"></i></li>
+                    <li><i class="fab fa-twitch"></i></li>
+                    <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-facebook-square"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
+                    <li><i class="fab fa-discord"></i></li>
+                </ul>
+                <input type="text" placeholder="Your EMAIL">
+                <a href="login">JOIN TO STAY ALVIE</a>
+                <p>귀하는 JHSTDUIO Interactive Inc. 및 그 계열사가 개인 정보 보호 정책 및 이용 약관 에 따라 귀하가 동의하기로 한 STAY ALIVE에 대한 정보를 제공하기 위해이 양식으로 제공 한 개인 데이터를 수집, 사용 및 공개 할 수 있음에 동의합니다.</p>
+            </div>
+            </div>
+            <footer>
+            <ul class="footer_list">
+                <li><i class="fab fa-playstation"></i><span>PS4</span></li>
+                <li><i class="fab fa-xbox"></i><span>XBOX ONE</span></li>
+                <li><i class="fab fa-steam"></i><span>STEAM</span></li>
+                <li><i class="fab fa-windows"></i><span>Window 10</span></li>
+                <li><i class="fab fa-google-play"></i><span>Google Play</span></li>
+            </ul>
+            <p>PlayStation family logo mark"PlayStation" andPlayStation 4 logoare registered trademarks or trademarks of Sony Interactive Entertainment Inc.
+            ©JHSTUDIO Corporation. Steam and the Steam logo are trademarks and/or registered trademarks of JHSTUDIO Corporation in the KOR. and/or other countries</p>
+            <h3><img src="images/logo.png" alt="main_logo" class="footer_logo"></h3>
+            <address>COPYRIGHT © 2019 RED BARRELS INC. ALL RIGHTS RESERVED.</address>
+            
+            </footer>
+            </div></div>
+    </div>
+    
+    <ul class="Pos_menu">
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+           <li><i class="fab fa-chrome fa-spin"></i></li>
+    </ul>
+       
+</body>
+
+</html>
