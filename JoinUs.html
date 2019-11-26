@@ -139,6 +139,7 @@
         .s1{background: url(images/BuyNow/BN_bg5.jpg)no-repeat; background-size: cover; background-attachment: fixed;}
         .s7{background: url(images/bg_7.jpg)  no-repeat; background-size: cover;}
         
+        
         /*click*/
         .here a{color: #f9f9f9;  border-bottom: 2px solid #f9f9f9; font-weight: bold;}
         .fa-house-damage{font-size: 30px; line-height: 90px;}    
@@ -190,27 +191,7 @@
         .facebook i:hover{background: none; border: 2px inset #3c5a99;}
         .instagram i:hover{background: none; border: 2px inset #ff7d45;}
         
-        /*login*/
-        .Login{position: relative; top: 200px; width: 40%; height: 65%; background: rgba(0,0,0,0.34);left: 12%; text-align: center; }
-        .Login h1{text-align: center;}
-        .Login h1 img{width: 50%;}
-        .SNS{width: 60%; margin:  0 auto; height: 70px; margin-top: 15px;}
-        .SNS::after{content: ''; display: block; clear: both;}
-        .SNS li{float: left; width: 25%; }
-        .SNS li i{width: 90%; margin: 0 auto;text-align: center;font-size: 24px;line-height: 60px; transition: 0.2s; cursor: pointer;}
-        .con1 input::placeholder{color: rgba(255,255,255,0.7);}
-        .con1 input[type = text]:focus{border-bottom:2px solid goldenrod; color: goldenrod;}
-        .con1 input[type = password]:focus{border-bottom:2px solid goldenrod; color: goldenrod;}
-        .con1 input[type = text]{font-size: 20px; width: 60%;height: 40px; margin-top: 30px; background: none; border: none; border-bottom: 2px solid #eee; text-indent: 10px; color: #f9f9f9;}    
-        .con1 input[type = password]{font-size: 20px; width: 59%; height: 40px; margin-top: 20px; background: none; border: none; border-bottom: 2px solid #eee; text-indent: 10px; color: #f9f9f9;}
-        .checkbox{width: 60%; text-align: left; margin: 0 auto;}
-        .checkbox:after{content: ''; display: block; clear: both;}
-        input[type = checkbox]{width: 20px; height: 20px; float: left; margin-top: 20px; color: goldenrod;}
-        .Login span{font-size: 20px;display: block; float: left; text-indent: 10px; margin-top: 20px;}
-        .loginbtn{width: 60%; background: goldenrod; display: block; margin: 0 auto; margin-top: 30px; font-size: 20px; line-height: 50px; font-family: 'Nanum Gothic', sans-serif; color: #251e1e; font-weight: bold; transition: 0.2s;}
-        .joinbtn{width: 60%; border: 1px solid goldenrod; display: block; margin: 0 auto;font-size: 20px; line-height: 50px; font-family: 'Nanum Gothic', sans-serif; color: goldenrod; font-weight: bold; transition: 0.2s;}
-        .loginbtn:hover{background: #ffc132;}
-        .joinbtn:hover{background: rgba(218,165,32,0.3);}
+        
     </style>
     <style>
     /*미디어쿼리*/
@@ -225,14 +206,7 @@
             footer p{width: 80%; letter-spacing: 1px;}
             footer .footer_logo{width: 10%; height: 10%;}
             
-            .Login{width: 60%; left: 0; top: 150px; margin: 0 auto;}
-            .Login h1 img{width: 60%;}
-            .SNS{width: 70%; margin-top: 30px;}
-            .con1 input[type = text]{width: 70%; margin-top: 50px;}
-            .con1 input[type = password]{width: 70%;}
-            .checkbox{width: 70%;}
-            .loginbtn{width: 70%; margin-top: 30px;}
-            .joinbtn{width: 70%;}
+            
            
             
         }
@@ -250,14 +224,7 @@
             footer p{width: 80%; letter-spacing: 1px;}
             footer .footer_logo{width: 15%; height: 10%;}
             
-            .Login{width: 100%; left: 0; top: 220px;}
-            .Login h1 img{width: 65%;}
-            .SNS{width: 70%; margin-top: 30px;}
-            .con1 input[type = text]{width: 70%; margin-top: 50px;}
-            .con1 input[type = password]{width: 70%;}
-            .checkbox{width: 70%;}
-            .loginbtn{width: 70%; margin-top: 30px;}
-            .joinbtn{width: 70%;}
+            
            
         }
         
@@ -278,21 +245,25 @@
         <div class="section s1">
            <div class="Content con1">
             <div class="vfx"><img src="images/BuyNow/vfx/vfx2.gif" alt="vfx"></div>
-             <div class="Login">
-                 <h1><a href="index.html"><img src="images/logo.png" alt="logo"></a></h1>
-                 <ul class="SNS">
-                     <li class="google"><i class="fab fa-google-plus-square"></i></li>
-                     <li class="line"><i class="fab fa-line"></i></li>
-                    <li class="facebook"><i class="fab fa-facebook-square"></i></li>
-                    <li class="instagram"><i class="fab fa-instagram"></i></li>
-                 </ul>
-                 <input type="text" class="email" placeholder="이메일 주소" onFocus="clearMessage(this.form);"><br>
-                 <input type="password" class="email" placeholder="비밀번호" onFocus="clearMessage(this.form);"><br>
-                 <div class="checkbox">
-                     <input type="checkbox"><span>Remember Email</span><br>
+             <div class="Join">
+                 <h2>JOIN US</h2>
+                 <div class="Join_con">
+                     <input type="text" placeholder="Email Address">
+                     <input type="password" placeholder="Password">
+                     <input type="password" placeholder="Password">
+                     <div class="brith">
+                         <input type="text"><input type="text"><input type="text">
+                     </div>
+                     <div class="phone">
+                         <input type="text"><input type="text">
+                     </div>
+                     <input type="checkbox">
+                <span>STAYALVIE의 개인정보 수집 및 이용(필수) 이벤트 등 프로모션 안내 메일 수신(선택)에 모드 동의합니다.</span>
+                    <input type="checkbox"><span><strong>이용약관</strong> 에 동의합니다(필수)</span>
+                    <input type="checkbox"><span><strong>개인정보 수집 및 동의</strong> 에 동의합니다(필수)</span>
+                    <input type="checkbox"><span><strong>STAYALIVE</strong>가 제공하는 이벤트 등 프로모션 안내 메일을 수신합니다.(선택)</span>                     
                  </div>
-                 <a href="index.html" class="loginbtn">LOGIN</a><br>
-                 <a href="" class="joinbtn">JOIN US</a>
+                 <a href="BuyNow.html">Join Us</a>
              </div>
            </div></div>
        

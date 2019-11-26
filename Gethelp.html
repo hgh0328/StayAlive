@@ -183,6 +183,7 @@
     <style>
         /*defalut setting*/
         *{margin: 0; padding: 0;}
+        body{background: #000;}
         body::-webkit-scrollbar {display: none;} 
         html,body{ margin:0; padding:0; width:100%; height:100%; font-family: 'Big Shoulders Text', cursive; color: #f9f9f9;}
         
@@ -266,7 +267,7 @@
         .imgbox{overflow: hidden; height: 600px; width: 90%; overflow: hidden; position: relative; margin: 0 auto;}
         .imgCon{width: 460px; margin: 0 auto; height: 600px; transition: 0.5s; cursor: pointer;}
         .imgCon:hover{transform: scale(1.1);}
-        .logoimg{position: absolute; width: 30%; z-index: 99; left: 50%; transform: translateX(-50%); top: 500px;}
+        .logoimg{position: absolute; width: 30%; z-index: 9; left: 50%; transform: translateX(-50%); top: 500px;}
         .Ci1{background: url(images/GetHelp/console_con.jpg)50% 100% no-repeat; background-size: cover;}
         .Ci2{background: url(images/GetHelp/pc_con.jpg)40% 100% no-repeat; background-size: cover;}
         .Ci3{background: url(images/GetHelp/moblie_con.jpg)45% 100% no-repeat; background-size: cover;}
@@ -274,7 +275,7 @@
         /*GetHelp*/
         .icon_box{position: relative; width: 100%; top: 200px;}
         .icon_list{position: relative;}
-        .icon_list li{float: left; width: 25%; text-align: center;}
+        .icon_list li{float: left; width: 25%; text-align: center; cursor: pointer;}
         .icon_list:after{content: ''; display: block; clear: both;}
         .icon_list i{font-size: 50px; transition: 0.3s;}
         .icon_list h4{font-size: 24px; line-height: 100px; letter-spacing: 1px; transition: 0.3s;}
@@ -346,6 +347,9 @@
             .con1 h2{top: 200px;}
             .Plotform{top: 300px;}
             .logoimg{width: 90%;}
+            .Ci1{background-position: 38% 100%;}
+            .Ci2{background-position: 50% 100%;}
+            .Ci3{background-position: 90% 100%;}
             
             /*Gethelp*/
             .icon_list h4{display: none;}
@@ -465,10 +469,8 @@
                     <p>There is an issue where the PTS isn't accessible on the Xbox Store.  Until we...</p></li>
                     <li class="chosse3"><h5>What kind of data does PUBG collect?</h5>
                     <p>We collect the following kinds of data. For more details, please read our pri...</p></li>
-                    <li class="chosse2"><h5>My win/kill stats are decreasing.</h5>
-                    <p>Please report the issue by using the Xbox insider hub app, this will help us ...</p></li>
-                    <li class="chosse1"><h5>I haven't received my purchase.</h5>
-                    <p>Help us assist you further, by sharing the below information by submitting a ...</p></li>
+                    
+                    
                     </ul>
                 </li>
                 <li>
@@ -483,8 +485,7 @@
                     <p>When the game is crashing or failing to load, please provide the following in...</p></li>
                     <li class="chosse4"><h5>What is GDPR?</h5>
                     <p>The General Data Protection Regulation (GDPR) is a regulation on data protect...</p></li>
-                    <li class="chosse1"><h5>What happens after I report a player for cheating?</h5>
-                    <p>Please know that our Team is always deploying countermeasures to detect and r...</p></li>
+                    
                     </ul>
                 </li>
             </ul>
@@ -520,8 +521,7 @@
                     <p>We collect the following kinds of data. For more details, please read our pri...</p></li>
                     <li class="chosse4"><h5>My win/kill stats are decreasing.</h5>
                     <p>Please report the issue by using the Xbox insider hub app, this will help us ...</p></li>
-                    <li class="chosse3"><h5>I haven't received my purchase.</h5>
-                    <p>Help us assist you further, by sharing the below information by submitting a ...</p></li>
+                    
                     </ul>
                 </li>
                 <li>
@@ -536,8 +536,7 @@
                     <p>When the game is crashing or failing to load, please provide the following in...</p></li>
                     <li class="chosse3"><h5>What is GDPR?</h5>
                     <p>The General Data Protection Regulation (GDPR) is a regulation on data protect...</p></li>
-                    <li class="chosse1"><h5>What happens after I report a player for cheating?</h5>
-                    <p>Please know that our Team is always deploying countermeasures to detect and r...</p></li>
+                    
                     </ul>
                 </li>
             </ul>
@@ -557,7 +556,7 @@
                     <li><i class="fab fa-discord"></i></li>
                 </ul>
                 <input type="text" placeholder="Your EMAIL">
-                <a href="login">JOIN TO STAY ALVIE</a>
+                <a href="BuyNow.html">JOIN TO STAY ALVIE</a>
                 <p>귀하는 JHSTDUIO Interactive Inc. 및 그 계열사가 개인 정보 보호 정책 및 이용 약관 에 따라 귀하가 동의하기로 한 STAY ALIVE에 대한 정보를 제공하기 위해이 양식으로 제공 한 개인 데이터를 수집, 사용 및 공개 할 수 있음에 동의합니다.</p>
             </div>
             </div>
@@ -571,7 +570,7 @@
             </ul>
             <p>PlayStation family logo mark"PlayStation" andPlayStation 4 logoare registered trademarks or trademarks of Sony Interactive Entertainment Inc.
             ©JHSTUDIO Corporation. Steam and the Steam logo are trademarks and/or registered trademarks of JHSTUDIO Corporation in the KOR. and/or other countries</p>
-            <h3><img src="images/logo.png" alt="main_logo" class="footer_logo"></h3>
+            <h3><a href="index.html"><img src="images/logo.png" alt="main_logo" class="footer_logo"></a></h3>
             <address>COPYRIGHT © 2019 RED BARRELS INC. ALL RIGHTS RESERVED.</address>
             
             </footer>
