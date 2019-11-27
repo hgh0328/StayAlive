@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>STAY ALVIE > Buynow</title>
+    <title>STAY ALVIE > BUY NOW > JOIN US</title>
     <meta name="viewport" content="width=device-width , initial-scale=1.0">    
     <link rel="stylesheet" href="css/main.css">  
     
@@ -102,6 +102,9 @@
                     
                 });
             });
+            $(".Check_ALL").click(function(){
+                $(".agree").prop('checked',this.checked);
+            });
         });
     </script>
     
@@ -136,7 +139,7 @@
         .Pos_menu li i{color: rgba(255,255,255,0.3); font-size: 20px; display: inline-block;}
         .Pos_menu li i.on{color: #a5060a; font-size: 36px;}
         
-        .s1{background: url(images/BuyNow/BN_bg5.jpg)no-repeat; background-size: cover; background-attachment: fixed;}
+        .s1{background: url(images/BuyNow/BN_bg4.jpg)no-repeat; background-size: cover; background-attachment: fixed;}
         .s7{background: url(images/bg_7.jpg)  no-repeat; background-size: cover;}
         
         
@@ -178,7 +181,7 @@
         
         /*vfx*/
         .vfx{width: 100%; height: 100%; position: absolute;}
-        .vfx img{width: 100%; height: 100%; opacity: 0.3;}
+        .vfx img{width: 100%; height: 100%; opacity: 0.7;}
         
         /*SNS*/
         .google i{background: #d14433; border: 2px solid #d14433;}
@@ -191,6 +194,33 @@
         .facebook i:hover{background: none; border: 2px inset #3c5a99;}
         .instagram i:hover{background: none; border: 2px inset #ff7d45;}
         
+        /*Join*/
+        .Join{position: relative; width: 100%; height: 100vh;}
+        .Join h2{text-align: center; position: relative; top: 150px; font-size: 60px;}
+        .Join_con{position: relative; width: 100%; top: 220px; text-align: center;}
+        .Join_con [type = text]::placeholder{color: #cccccc;}
+        .Join_con [type = password]::placeholder{color: #cccccc;}
+        .Join_con [type = text]{font-size: 20px; display: block; margin: 0 auto; margin-top: 30px; border: none; background: none; border-bottom: 2px solid #fff; line-height: 30px; color: #f9f9f9;}
+        .Join_con [name = email]{width: 20%; text-indent: 10px;}
+        .Join_con [type = password]{font-size: 20px; display: block; margin: 0 auto; margin-top: 30px; border: none; background: none; border-bottom: 2px solid #fff; width: 20%; color: #f9f9f9; text-indent: 10px;}
+        .brith{position: relative; margin: 0 auto; text-align: center; width: 20%;}
+        .brith input{float: left; text-align: center; border: none;}
+        .brith input[type = text]{width: 30.33%; margin-left: 1.5%; margin-right: 1.5%;}
+        .brith:after{content: ''; display: block; clear: both;}     
+        .Join_con span{font-size: 15px; font-family: 'Nanum Gothic', sans-serif; display: inline-block;}
+        .allagree{width: 20%; display: block; text-align: left;}
+        .agree1{width: 20%; display: block; text-align: left;margin-left: 8px;}
+        .agree2{width: 20%; display: block; text-align: left; margin-left: 8px;}
+        .agree3{width: 20%; display: block; text-align: left; margin-top: 10px; margin-left: 8px;}
+        .Join_con input[name = check1]{width: 20px;height: 20px; margin-top: 40px;}
+        .Join_con input[name = check2]{width: 15px;height: 15px; margin-top: 10px;}
+        .Join_con input[name = check3]{width: 15px;height: 15px; margin-top: 10px;}
+        .Join_con input[name = check4]{width: 15px;height: 15px; margin-top: 10px;}
+        .Join_con strong{color: goldenrod;}
+        .Join_con .joinBtn{display: block; width: 20%; margin: 0 auto; margin-top: 30px; background: goldenrod; line-height: 60px; color: #251e1e; font-weight: bold; border: 1px inset goldenrod; letter-spacing: 1px; transition: 0.3s;}
+        .Join_con .joinBtn:hover{background: rgba(218,165,32,0.3); color: #f9f9f9;}
+        .Join_con input[type = text]:focus{border-bottom:2px solid goldenrod; color: goldenrod;}
+        .Join_con input[type = password]:focus{border-bottom:2px solid goldenrod; color: goldenrod;}
         
     </style>
     <style>
@@ -206,6 +236,17 @@
             footer p{width: 80%; letter-spacing: 1px;}
             footer .footer_logo{width: 10%; height: 10%;}
             
+            /*join us*/
+            .Join h2{top: 260px;}
+            .Join_con{top: 260px;}
+            .Join_con [name = email]{width: 50%;}
+            .Join_con [type = password]{width: 50%;}
+            .brith{width: 50%;}
+            .allagree{width: 50%;}
+            .agree1{width: 50%;}
+            .agree2{width: 50%;}
+            .agree3{width: 50%;}
+            .Join_con .joinBtn{width: 50%;}
             
            
             
@@ -223,6 +264,19 @@
             .footer_list span{display: none;}
             footer p{width: 80%; letter-spacing: 1px;}
             footer .footer_logo{width: 15%; height: 10%;}
+            
+            /*join us*/
+            .Join h2{top: 260px;}
+            .Join_con{top: 260px;}
+            .Join_con [name = email]{width: 90%;}
+            .Join_con [type = password]{width: 90%;}
+            .brith{width: 90%;}
+            .allagree{width: 90%;}
+            .agree1{width: 90%;}
+            .agree2{width: 90%;}
+            .agree3{width: 90%;}
+            .Join_con .joinBtn{width: 90%;}
+            .Pos_menu{display: none;}
             
             
            
@@ -244,26 +298,25 @@
     <div id="wrap">
         <div class="section s1">
            <div class="Content con1">
-            <div class="vfx"><img src="images/BuyNow/vfx/vfx2.gif" alt="vfx"></div>
+            <div class="vfx"><img src="images/BuyNow/vfx/vfx1.gif" alt="vfx"></div>
              <div class="Join">
                  <h2>JOIN US</h2>
                  <div class="Join_con">
-                     <input type="text" placeholder="Email Address">
-                     <input type="password" placeholder="Password">
-                     <input type="password" placeholder="Password">
+                     <input type="text" placeholder="이메일 주소" name="email">
+                     <input type="password" placeholder="비밀번호">
+                     <input type="password" placeholder="비밀번호 확인">
                      <div class="brith">
-                         <input type="text"><input type="text"><input type="text">
+                         <input type="text" placeholder="MM">
+                         <input type="text" placeholder="DD">
+                         <input type="text" placeholder="YYYY">
                      </div>
-                     <div class="phone">
-                         <input type="text"><input type="text">
-                     </div>
-                     <input type="checkbox">
-                <span>STAYALVIE의 개인정보 수집 및 이용(필수) 이벤트 등 프로모션 안내 메일 수신(선택)에 모드 동의합니다.</span>
-                    <input type="checkbox"><span><strong>이용약관</strong> 에 동의합니다(필수)</span>
-                    <input type="checkbox"><span><strong>개인정보 수집 및 동의</strong> 에 동의합니다(필수)</span>
-                    <input type="checkbox"><span><strong>STAYALIVE</strong>가 제공하는 이벤트 등 프로모션 안내 메일을 수신합니다.(선택)</span>                     
+                     <input type="checkbox" name="check1" class="Check_ALL">
+                     <span class="allagree">STAYALVIE의 개인정보 수집 및 이용,이벤트 등 프로모션 안내 메일 수신에 모두 동의합니다.</span><br>
+                     <input type="checkbox" name="check2" class="agree"><span class="agree1"><strong>이용약관</strong> 에 동의합니다(필수)</span><br>
+                     <input type="checkbox" name="check3" class="agree"><span class="agree2"><strong>개인정보 수집 및 동의</strong> 에 동의합니다(필수)</span><br>
+                     <input type="checkbox" name="check4" class="agree"><span class="agree3"><strong>STAYALIVE</strong>가 제공하는 이벤트 등 프로모션 안내 메일을 수신합니다.(선택)</span><br>                    
+                 <a href="BuyNow.html" class="joinBtn">JOIN US</a>
                  </div>
-                 <a href="BuyNow.html">Join Us</a>
              </div>
            </div></div>
        
