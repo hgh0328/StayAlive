@@ -191,7 +191,7 @@
         .con2>article{position: absolute; width: 100%; text-align: center; top: 20%;}
         .con2>article .con2_date{font-size: 18px;}
         .con2>article h3{font-size: 48px; margin-bottom: 40px; margin-top: 20px;}
-        .con2>article .con2_txt{font-size: 28px; width: 34%; margin: 0 auto; line-height: 35px;}
+        .con2>article .con2_txt{font-size: 38px; width: 35%; margin: 0 auto; line-height: 35px; letter-spacing: 1px;}
         
         /*Content3*/
         .con3>h3{font-size: 48px; text-align: center; position: relative; top: 200px;}
@@ -202,11 +202,11 @@
         .Con3_Box>div{float: left; width: 50%;}
         .Con3_Box h4{font-size: 28px; line-height: 40px;}
         .Con3_Box p{font-size: 22px; line-height: 22px;}
-        .Con3_txt1{height: 30vh;}
-        .Con3_txt2{height: 35vh;}
-        .Con3_txt3{height: 35vh;}
-        .Con3_txt4{height: 40vh;}
-        .Con3_txt5{height: 40vh;}
+        .Con3_txt1{margin-top: 0;}
+        .Con3_txt2{margin-top: 0}
+        .Con3_txt3{margin-top: 30px;}
+        .Con3_txt4{margin-top: 30px;}
+        .Con3_txt5{margin-top: -30px;}
         
         /*Content4*/]
         .con4{width: 100%; height: 100vh;}
@@ -270,8 +270,8 @@
         
         /*Content7*/
         .con7_txt{position: relative; width: 100%; height: 80vh; text-align: center;}
-        .con7_join{position: absolute; width: 100%; height: 10vh; background: rgba(165,6,10,0.6); bottom: 0; transition: 0.5s;}
-        .con7_join:hover{height: 35vh; background: rgba(0,0,0,0.8)}
+        .con7_join{position: absolute; width: 100%; height: 10%; background: rgba(165,6,10,0.6); bottom: 0; transition: 0.5s;}
+        .con7_join:hover{height: 35%; background: rgba(0,0,0,0.8)}
         .con7_join h3{text-align: center; font-size: 26px; line-height: 100px;}
         .con7_join ul{width: 50%; margin: 0 auto; text-align: center;}
         .con7_join ul:after{content: ''; display: block; clear: both;}
@@ -289,7 +289,7 @@
         .fa-discord:hover{color:#7289d9;}
         
         /*footer*/
-        footer{position: relative; bottom: 0; width: 100%; height: 20vh; background: rgba(0,0,0,1);}
+        footer{position: relative; bottom: 0; width: 100%; height: 20%; background: rgba(0,0,0,1);}
         .footer_list{width: 60%; margin: 0 auto;}
         .footer_list:after{content: ''; display: block; clear: both;}
         .footer_list li{float: left; width: 20%; text-align: center; line-height: 50px; font-size: 22px; margin-top: 20px;}
@@ -373,28 +373,35 @@
             .Con4_img3{width: 100%; height: 33.33%; background-position: bottom;}
             .Con4_img4{display: none;}
             .Con4_img5{display: none;}
-            .con5{padding-top: 110px; height: 100vh; background: rgba(0,0,0,0.7); top: 0;}
+            .con5{height: 100vh; background: rgba(0,0,0,0.7); top: 0;}
             .Con5_imgBox{width: 400px; display: none;}
             .con5 h5{text-align: left; text-indent: 16px; font-size: 18px; line-height: 18px; height: 18px; margin-top: 20px;}
             .con5>h3{display: none;}
             .con5 h3{margin-top: 0; margin-bottom: 0;}
             .con5>div{margin-top: 0px; float: none;}
-            .Con5_txt{width: 100%; height: 100%;}
+            .Con5_txt{width: 100%; height: 315px;}
             .con5 p{font-size: 20px;}
             .Con5_console{width: 500px;margin: 0 auto; margin-top: 50px;}
             .Con5_pc{width: 500px; margin: 0; margin: 0 auto; margin-top: 50px;}
             .Con5_moblie{width: 500px; margin: 0; margin: 0 auto; margin-top: 50px;}
+            
+            .con5>div:hover .Con5_imgBox>div{transform: scale(1);}            
+            .con5>div:hover .Con5_txt{transition: 1s; top: 0px;}
+            
             .con6{top: 0px; height: 100vh;}
             .con6>h3{margin-top: 50px; margin-bottom: 0; display: none;}
             .con6 video{width: 300%; left: 0; height: 100vh; transform: rotate(90deg); left: -100%;}
+            .con7_txt{height: 70%;}
+            .con7_join:hover{height: 60%; background: rgba(0,0,0,0.8)}
             .con7_join{height: 11vh;}
             .con7_join ul{width: 80%;}
             .con7_join p{width: 80%;}
             .con7_join input{width: 75%;}
             .con7_join a{width: 75%;}
             .footer_list span{display: none;}
-            footer p{width: 80%; letter-spacing: 1px;}
-            footer .footer_logo{width: 15%; height: 10vh;}
+            footer{height: 500px;}
+            footer p{width: 80%; letter-spacing: 1px; }
+            footer .footer_logo{width: 15%; height: 4vh;}
             .Pos_menu{display: none;}
             
         }
