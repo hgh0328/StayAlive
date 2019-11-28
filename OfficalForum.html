@@ -111,9 +111,9 @@
         *{margin: 0; padding: 0;}
         body{background: #000;}
         body::-webkit-scrollbar {display: none;} 
-        html,body{ margin:0; padding:0; width:100%; height:100%; font-family: 'Big Shoulders Text', cursive; color: #f9f9f9;}
+        html,body{ margin:0; padding:0; width:100%; height:100vh; font-family: 'Big Shoulders Text', cursive; color: #f9f9f9;}
         
-        #wrap {width: 100%; height: 100%;position: relative;}
+        #wrap {width: 100%; height: 100vh;position: relative;}
         
         /*header*/
         header{position: fixed; width: 100%; height: auto; z-index: 99; font-family: 'Kanit', sans-serif;}
@@ -127,8 +127,8 @@
         .BuyNow a:hover{color: #251e1e;}
         
         
-        .section{ width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
-        .Content{position: relative; width: 100%; height: 100%;}
+        .section{ width:100%; height:100vh; position:relative; color:#ffffff; font-size:24pt;}
+        .Content{position: relative; width: 100%; height: 100vh;}
        
         
         .Pos_menu{position: fixed; right: 1%; top: 40%;  text-align: center; z-index: 99999;}
@@ -211,18 +211,22 @@
             
         }
         @media screen and (max-width:1000px) and (min-width:300px){
-             header ul{width: 100%; left: 0%; }
+             header ul{width: 100%; left: 0%; background: rgba(0,0,0,0.8);}
              header ul li{width: 100%;}
              header ul li a{font-size: 16px; width: 50%; line-height: 50px;}
             .BuyNow a{width: 100%;}
             .fa-house-damage{font-size: 16px; line-height: 50px;}            
+            .con7_txt{height: 70%;}
+            .con7_join:hover{height: 60%; background: rgba(0,0,0,0.8)}
+            .con7_join{height: 11vh;}
             .con7_join ul{width: 80%;}
             .con7_join p{width: 80%;}
             .con7_join input{width: 75%;}
             .con7_join a{width: 75%;}
             .footer_list span{display: none;}
-            footer p{width: 80%; letter-spacing: 1px;}
-            footer .footer_logo{width: 15%; height: 10%;}     
+            footer{height: 500px;}
+            footer p{width: 80%; letter-spacing: 1px; }
+            footer .footer_logo{width: 15%; height: 4vh;}    
             
             /*OF img*/
             .OF_main{text-indent: 10px;}

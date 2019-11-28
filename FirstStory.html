@@ -150,9 +150,9 @@
         *{margin: 0; padding: 0;}
         body{background: #000;}
         body::-webkit-scrollbar {display: none;} 
-        html,body{ margin:0; padding:0; width:100%; height:100%; font-family: 'Big Shoulders Text', cursive; color: #f9f9f9;}
+        html,body{ margin:0; padding:0; width:100%; height:100vh; font-family: 'Big Shoulders Text', cursive; color: #f9f9f9;}
         
-        #wrap {width: 100%; height: 100%;position: relative;}
+        #wrap {width: 100%; height: 100vh;position: relative;}
         
         /*header*/
         header{position: fixed; width: 100%; height: auto; z-index: 99; font-family: 'Kanit', sans-serif;}
@@ -166,8 +166,8 @@
         .BuyNow a:hover{color: #251e1e;}
         
         
-        .section{ width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
-        .Content{position: relative; width: 100%; height: 100%;}
+        .section{ width:100%; height:100vh; position:relative; color:#ffffff; font-size:24pt;}
+        .Content{position: relative; width: 100%; height: 100vh;}
        
         
         .Pos_menu{position: fixed; right: 1%; top: 40%;  text-align: center; z-index: 99999;}
@@ -181,7 +181,7 @@
         .s3{background: url(images/FristStroy/map.jpg) no-repeat; background-size: cover; background-attachment: fixed; background-position: center center;}
         .s7{background: url(images/bg_7.jpg)  no-repeat; background-size: cover;}
         
-        .con2{height: 100%; background: rgba(0,0,0,0.3); padding-top: 100px;}
+        .con2{height: 100%; background: rgba(0,0,0,0.3); padding-top: 100px; overflow: hidden;}
         
         /*click*/
         .here a{color: goldenrod;  border-bottom: 2px solid goldenrod; font-weight: bold;}
@@ -222,12 +222,12 @@
         .weapons_list p{font-size: 22px; width: 60%; margin: 0 auto; text-align: left; margin-top: 10px;}
         
         /*Content3 지도*/
-        .map_listBox{position: relative; z-index: 999;
+        .map_listBox{position: relative; z-index: 9;
         }
         .map_listBox h2{font-size: 48px; letter-spacing: 1px; margin-left: 30px; line-height: 90px;}
         .map_list li{font-size: 36px; padding-left: 30px; line-height: 50px; cursor: pointer; transition: 0.5s;}
         .map_list li.on{border-left: 10px solid #a5060a; color: #a5060a; font-weight: bold; letter-spacing: 5px;}
-        .map_pin{position: absolute; width: 100%; height: 100%; top: 0; z-index: 9; overflow: hidden;}
+        .map_pin{position: absolute; width: 100%; height: 100%; top: 0; z-index: 8; overflow: hidden;}
         .map_listBox{position: relative; width: 45%; top: 120px; left: 2%; background: rgba(0,0,0,0.7);height: 40%;}
         .map_txt{margin-top: 15px; font-size: 22px; width: 80%; margin-left: 30px; color: #ccc; line-height: 24px;}
         .line{width: 100px; height: 100px; border-radius: 100%; display: block;position: absolute; left: 0; top: 0; animation: ani1 infinite 5s; border-color: rgba(165,6,10,0); z-index: 1;}
@@ -336,40 +336,54 @@
             .map_listBox{width: 55%; top: 120px;background: rgba(0,0,0,0.7);height: 45%;}
         }
         @media screen and (max-width:1000px) and (min-width:300px){
-             header ul{width: 100%; left: 0%; }
+             header ul{width: 100%; left: 0%; background: rgba(0,0,0,0.8);}
              header ul li{width: 100%;}
              header ul li a{font-size: 16px; width: 50%; line-height: 50px;}
             .BuyNow a{width: 100%;}
             .fa-house-damage{font-size: 16px; line-height: 50px;}            
+            .con7_txt{height: 70%;}
+            .con7_join:hover{height: 60%; background: rgba(0,0,0,0.8)}
+            .con7_join{height: 11vh;}
             .con7_join ul{width: 80%;}
             .con7_join p{width: 80%;}
             .con7_join input{width: 75%;}
             .con7_join a{width: 75%;}
             .footer_list span{display: none;}
-            footer p{width: 80%; letter-spacing: 1px;}
-            footer .footer_logo{width: 15%; height: 10%;}
+            footer{height: 500px;}
+            footer p{width: 80%; letter-spacing: 1px; }
+            footer .footer_logo{width: 15%; height: 4vh;}
+            .Pos_menu{display: none;}
             /*character*/
+            .character_txt{ top: 180px; left: 5%; cursor: default; width: 100%;}
+            .character_list{margin-top: 20px; width: 100%;}
+            .character_list li{line-height: 50px; margin-top: 15px;}
             .character_img li{top: 0px;}
-            .character_img li img{width: 100%; top: 550px;}
-            .character_summary{width: 95%; top: 400px;}
-            .character_summary h3{font-size: 80px; line-height: 120px;}
-            .character_summary p{font-size: 18px; line-height: 30px; width: 80%; display: none;}
-            .character_summary h4{font-size: 29px; line-height: 40px; margin-top: 10px;}
+            .character_img li img{width: 100%; top: 350px;}
+            .character_summary{width: 95%; top: 350px;}
+            .character_summary h3{font-size: 60px; line-height: 60px;}
+            .character_summary p{font-size: 18px; line-height: 20px; width: 80%; display: none;}
+            .character_summary h4{font-size: 22px; line-height: 40px; margin-top: 5px;}
             .character_summary em{font-weight: normal;}
             
             /*weapon*/
             .weapons{top: 60px; z-index: 9;}
-            .weapons li{width: 33.33%;}
-            .weapons_list{top: 80px; position: relative; z-index: 0;}
-            .weapons_list{transform: scale(2)}
-            .weapons_list img{width: 100%;}
-            .weapons_list p{display: none;}
+            .weapons li{width: 33.33%; font-size: 24px;}
+            .weapons_list{top: 0px; position: relative; z-index: 0;}
+            .weapons_list{transform: scale(2.5)}
+            .weapons_list img{width: 80%;}
+            .weapons_list h3{font-size: 20px; line-height: 20px;}
+            .weapons_list p{display: none; font-size: 16px;}
+            .weapons_list span{font-size: 12px; line-height: 12px; margin-top: 0;}
+            .swiper-container{position: relative; top: 80px;}      
+
+       
+        
             
             /*map*/
             .Pinhide{display: none;}
-            .map_listBox{width: 70%; top: 170px;background: rgba(0,0,0,0.7);height: 52%;}
-            
+            .map_listBox{width: 95%; top: 170px;background: rgba(0,0,0,0.7);height: 78%;}            
             .Pos_menu{display: none;}
+            
             
         }
         
